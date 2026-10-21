@@ -138,6 +138,8 @@ class Limpia(HTMLParser):
         s = re.sub(r"<p>(?:\s|&nbsp;|\xa0|<br>)*</p>", "", s)
         s = re.sub(r"<(strong|b|em|i)>(?:\s|&nbsp;|\xa0)*</\1>", "", s)
         s = re.sub(r"<(h2|h3|h4|li|blockquote)>(?:\s|&nbsp;|\xa0)*</\1>", "", s)
+        # correos ofuscados por Cloudflare: no se publican en el draft
+        s = re.sub(r'<a href="/cdn-cgi/l/email-protection[^"]*">.*?</a>', "(correo protegido en el sitio original)", s, flags=re.S)
         s = re.sub(r"\s{2,}", " ", s)
         return s.strip()
 
