@@ -43,7 +43,11 @@ if(tt){const kids=[...tt.children];kids.slice(kids.length/2).forEach(a=>{a.setAt
    Quitar este bloque cuando las páginas se generen desde el CMS. */
 (function(){
   const LIVE='https://diariopresente.mx';
-  const fixA=a=>{const h=a.getAttribute('href');if(!h||h.startsWith('//'))return;a.setAttribute('href',LIVE+h);a.target='_blank';a.rel='noopener';if(!a.title)a.title='Abre en el sitio actual (aún no rediseñado)'};
+  /* Notas: /seccion/slug/id → nota.html?id=… (contenido en data/notas, ver tools/fetch_notas.py) */
+  const NOTA=/^\/(?:tabasco|villahermosa|sucesos|mexico|politica|mundo|deportes|espectaculos|actualidad|cultura|sociales)\/(?:[^\/?#]+\/)+(\d{4,8})\/?$/;
+  /* Columnas de opinión: /opinion/slug/id → columna.html?id=… (data/columnas, ver tools/fetch_columnas.py) */
+  const COLUMNA=/^\/opinion\/[^\/?#]+\/(\d{4,8})\/?$/;
+  const fixA=a=>{const h=a.getAttribute('href');if(!h||h.startsWith('//'))return;const m=h.match(NOTA);if(m){a.setAttribute('href','nota.html?id='+m[1]);return}const o=h.match(COLUMNA);if(o){a.setAttribute('href','columna.html?id='+o[1]);return}a.setAttribute('href',LIVE+h);a.target='_blank';a.rel='noopener';if(!a.title)a.title='Abre en el sitio actual (aún no rediseñado)'};
   const fixAll=root=>root.querySelectorAll('a[href^="/"]').forEach(fixA);
   fixAll(document);
   new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==1)return;if(n.matches('a[href^="/"]'))fixA(n);fixAll(n)}))).observe(document.body,{childList:true,subtree:true});

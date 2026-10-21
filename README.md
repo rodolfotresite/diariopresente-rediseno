@@ -21,10 +21,10 @@ y abre <http://localhost:8000/index.html>. Las páginas de sección cargan datos
 | Archivo | Qué es |
 |---|---|
 | `index.html` | Portada |
-| `nota.html` | Página de una nota (ejemplo: Parque Museo La Venta) |
+| `nota.html` | Plantilla de nota: `?id=470434` muestra cualquiera de las ~400 notas enlazadas en el borrador, con su texto real (sin `?id=` muestra la nota de ejemplo, Parque Museo La Venta) |
 | `seccion.html` | Plantilla de sección para **13 secciones** con notas reales: `?s=tabasco` (por defecto), `villahermosa`, `sucesos`, `mexico`, `politica`, `mundo`, `deportes`, `deportes-tabasco`, `deportes-mundo`, `espectaculos`, `actualidad`, `cultura`, `sociales` |
 | `opinion.html` | Listado de columnas de opinión |
-| `columna.html` | Página de una columna (ejemplo: Escala Crítica) |
+| `columna.html` | Plantilla de columna de opinión: `?id=470258` (sin `?id=` muestra Escala Crítica) |
 | `edicion.html` | Edición impresa: portada del día, calendario y suplementos |
 | `404.html` | Página de error de GitHub Pages |
 
@@ -39,22 +39,34 @@ assets/
   logo-diariopresente-blanco.svg   Logo oficial (el HTML lo incrusta como SVG)
 data/
   secciones.js   Notas reales de las secciones (generado, no editar a mano)
+  notas/<id>.js  Texto, foto, autor y etiquetas de cada nota (generado)
+  columnas/<id>.js   Texto de cada columna de opinión (generado)
 tools/
   fetch_secciones.py   Regenera data/secciones.js desde diariopresente.mx
+  fetch_notas.py       Regenera data/notas/ (descarga y limpia cada nota enlazada)
+  fetch_columnas.py    Regenera data/columnas/ (sin correos de los autores)
 analisis-sitio-actual.md   Análisis del sitio actual, decisiones, revisión y pendientes
 ```
 
-### Actualizar los datos de las secciones
+### Actualizar los datos
 
 ```bash
-python tools/fetch_secciones.py
+python tools/fetch_secciones.py   # portadas de sección
+python tools/fetch_notas.py       # cada nota enlazada (usa data/secciones.js y los HTML)
+python tools/fetch_columnas.py    # columnas de opinión
 ```
 
-Descarga las portadas públicas de cada sección (con una pausa entre peticiones) y reescribe `data/secciones.js`.
+Descargan páginas públicas de diariopresente.mx con pausa entre peticiones. Ejecutar siempre en ese orden: las notas se buscan en lo que enlazan las secciones. Las notas se limpian con una lista blanca de etiquetas (párrafos, subtítulos, listas, citas, enlaces, imágenes y videos de YouTube).
 
-### Vista previa: enlaces a páginas no rediseñadas
+### Enlaces entre páginas
 
-Las notas, columnas, ediciones por fecha y Contacto usan rutas del sitio actual (`/seccion/slug/id`). En el borrador, `assets/site.js` las convierte en enlaces a `https://diariopresente.mx/...` que abren en una pestaña nueva. Ese bloque (al final de `site.js`) debe eliminarse cuando las páginas salgan del CMS.
+Los datos traen rutas del sitio actual (`/seccion/slug/id`). Al final de `assets/site.js`, un bloque las reescribe en el navegador:
+
+- `/seccion/slug/id` → `nota.html?id=id`
+- `/opinion/slug/id` → `columna.html?id=id`
+- cualquier otra ruta (Contacto, ediciones por fecha, etiquetas) → `https://diariopresente.mx/...`, en una pestaña nueva.
+
+Si una nota o columna no está en `data/`, la plantilla muestra un aviso con enlace al sitio actual. Ese bloque debe eliminarse cuando las páginas salgan del CMS.
 
 ## Decisiones de diseño
 
@@ -67,7 +79,7 @@ El detalle de cada página, la revisión de accesibilidad y la lista completa de
 
 ## Pendientes principales
 
-- Páginas de nota individuales por sección (hoy solo hay una de ejemplo) y páginas por fecha de la edición impresa.
+- Páginas por fecha de la edición impresa y de etiquetas (`/tags/...`), que hoy abren el sitio actual.
 - Paginación con URL propia en secciones.
 - Convertir encabezado y pie en componentes (hoy se repiten en cada HTML) y generar las listas desde el servidor en lugar de JavaScript.
 - Datos sin fuente: "Más leído", clima, videos, créditos de foto, autores, archivo de ediciones.

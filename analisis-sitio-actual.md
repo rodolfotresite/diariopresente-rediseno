@@ -280,3 +280,30 @@ Se auditaron las 6 páginas (home, nota, sección, opinión, columna, edición i
 - **Notas de ejemplo:** el panel "Más leído" indica que son datos de ejemplo. En secciones se llena con las notas más recientes.
 - **Archivos de Pages:** `.nojekyll` y `404.html`.
 - **Repositorio público** en la cuenta personal, por elección del usuario. Contiene contenido y fotos de diariopresente.mx y el correo de un columnista, usados como ejemplo.
+
+## 13. Notas y columnas completas (cualquier enlace abre su página rediseñada)
+
+`nota.html` y `columna.html` pasaron de ser páginas de ejemplo a **plantillas** que muestran cualquier nota o columna enlazada en el borrador. Los enlaces de las portadas, secciones, notas, opinión y columnas se reescriben al vuelo (`assets/site.js`) a `nota.html?id=…` y `columna.html?id=…`.
+
+| Dato | Cantidad | Origen |
+|---|---|---|
+| Notas | 416 | `data/notas/<id>.js`, generado con `tools/fetch_notas.py` |
+| Columnas de opinión | 96 | `data/columnas/<id>.js`, generado con `tools/fetch_columnas.py` (las 22 del listado y las que cada autor lista como "Más contenido del autor") |
+
+**Verificación (sitio completo):** 415 notas y 21 columnas enlazadas, las 436 con su contenido. Sin saltos de encabezado, sin contrastes insuficientes (claro y oscuro) y sin desbordes en móvil en una muestra de 44 notas y 8 columnas.
+
+**Qué hace la plantilla de nota:** sección, titular, bajada, autor y fuente, fecha y hora, tiempo de lectura, foto principal, sumario inicial como recuadro, texto con sus imágenes y videos de YouTube (sin cookies), "Lee también" y anuncio dentro del texto, etiquetas, y "Más de {sección}" con notas de la misma sección. Si el id no existe en `data/`, muestra un aviso con enlace al sitio actual.
+
+**Limpieza del texto:** se conserva solo lo seguro (párrafos, subtítulos, listas, citas, enlaces, imágenes y videos de YouTube). Se descartan scripts, formularios, estilos y cualquier otro iframe. Los enlaces externos abren en pestaña nueva.
+
+**Se corrigió en los datos:**
+- Notas con diseño antiguo (galerías, sin `h1`): se leen desde su bloque de título; sin foto principal, se usa la del bloque Multimedia del home.
+- Columnas con título y nombre invertidos en el sitio original: se intercambian. Los títulos en mayúsculas pasan a oración, conservando números romanos.
+
+**Correo de los autores:** el sitio actual lo **protege con Cloudflare** (`[email protected]`), contrario a lo que se había supuesto. Como el repositorio es público, los correos **no se descargan** y se quitaron de todas las columnas, incluida la de ejemplo.
+
+**Pendientes derivados:**
+- Siguen abriendo el sitio actual: Contacto, las ediciones por fecha y las etiquetas (`/tags/…`).
+- Los autores de columnas distintos a los seis principales usan iniciales como avatar; el sitio no tiene fotos.
+- Las notas tienen la foto principal con el recorte que entrega el sitio (760 × 475); sin pie ni crédito de foto.
+- El texto de los 416 artículos y las 96 columnas, con sus fotos, está ahora en un **repositorio público**. Conviene valorar pasarlo a privado o dejar solo muestras antes de compartir el enlace más allá del cliente.
