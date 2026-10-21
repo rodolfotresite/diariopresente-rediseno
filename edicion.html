@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="es-MX" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#184F76">
+  <title>Edición impresa | Diario Presente</title>
+  <meta name="description" content="Lee la edición impresa de Diario Presente del día y consulta las ediciones anteriores, el suplemento Ventana Sur y los suplementos especiales.">
+  <link rel="canonical" href="https://diariopresente.mx/edicionimpresa">
+  <link rel="stylesheet" href="assets/site.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@graph":[
+    {"@type":"CollectionPage","name":"Edición impresa","url":"https://diariopresente.mx/edicionimpresa",
+     "isPartOf":{"@type":"WebSite","name":"Diario Presente","url":"https://diariopresente.mx/"}},
+    {"@type":"PublicationIssue","name":"Diario Presente, 20 de octubre de 2026","datePublished":"2026-10-20",
+     "image":"https://blob.diariopresente.mx/images/2026/10/20/presente01-79539df6.jpg",
+     "url":"https://online.fliphtml5.com/tfthn/Presente-20-10-2026/",
+     "isPartOf":{"@type":"Periodical","name":"Diario Presente"}}]}
+  </script>
+  <style>
+
+    .sec-head{margin:12px 0 28px;padding-bottom:14px;border-bottom:4px solid var(--brand)}
+    .sec-head h1{font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;letter-spacing:-.04em;margin:0;color:var(--navy)}
+    [data-theme="dark"] .sec-head h1{color:#fff}
+    .sec-head p{margin:8px 0 0;color:var(--muted);max-width:60ch}
+
+    /* Edición de hoy */
+    .issue{display:grid;grid-template-columns:380px minmax(0,1fr);gap:44px;align-items:center;background:var(--soft);border-radius:24px;padding:36px 44px}
+    .cover-card{display:block;position:relative}
+    .paper{display:block;aspect-ratio:380/488;border-radius:4px;overflow:hidden;background:linear-gradient(160deg,var(--navy),var(--navy-light));box-shadow:0 2px 4px rgba(24,79,118,.15),0 18px 36px rgba(24,79,118,.28);transition:transform .25s ease,box-shadow .25s ease}
+    .paper img{width:100%;height:100%;object-fit:cover;display:block}
+    .cover-card:hover .paper{transform:translateY(-4px);box-shadow:0 2px 4px rgba(24,79,118,.15),0 26px 44px rgba(24,79,118,.34)}
+    .issue-info .eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:.76rem;font-weight:900;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+    .issue-info .eyebrow:before{content:"";width:28px;height:3px;background:var(--brand);border-radius:2px}
+    .issue-info h2{font-family:Georgia,serif;font-size:clamp(1.8rem,3.6vw,2.8rem);line-height:1.05;letter-spacing:-.03em;margin:12px 0 12px;color:var(--navy)}
+    [data-theme="dark"] .issue-info h2{color:#fff}
+    .issue-info p{color:var(--muted);margin:0 0 22px;max-width:48ch}
+    .issue-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .issue-actions .btn{padding:14px 24px}
+    .btn.ghost{background:transparent;color:var(--navy);border:2px solid var(--navy)}
+    [data-theme="dark"] .btn.ghost{color:#fff;border-color:#fff}
+    .btn.ghost:hover{background:var(--navy);color:#fff}
+    .issue-info small{display:block;margin-top:14px;color:var(--muted);font-size:.78rem}
+
+    /* Recientes + calendario */
+    .archive{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:38px;align-items:start}
+    .covers{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:26px 22px}
+    .cover-item{display:grid;gap:10px}
+    .cover-item .paper{box-shadow:0 1px 3px rgba(24,79,118,.15),0 10px 22px rgba(24,79,118,.2)}
+    .cover-item:hover .paper{transform:translateY(-3px)}
+    .cover-item b{display:block;font-family:Georgia,serif;font-size:1.02rem;line-height:1.2;color:var(--ink)}
+    .cover-item span.d{font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
+
+    .cal{padding:18px}
+    .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+    .cal-head h3{margin:0;font-family:Georgia,serif;font-size:1.25rem;color:var(--navy);text-transform:capitalize}
+    [data-theme="dark"] .cal-head h3{color:#fff}
+    .cal-head button{width:36px;height:36px;border:1px solid var(--line);border-radius:999px;background:var(--card);color:var(--ink);font-size:1rem}
+    .cal-head button:hover{background:var(--brand);border-color:var(--brand);color:#fff}
+    .cal table{width:100%;border-collapse:separate;border-spacing:3px;table-layout:fixed;text-align:center}
+    .cal th{font-size:.68rem;font-weight:800;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);padding-bottom:4px}
+    .cal td{padding:0}
+    .cal .day{display:grid;place-items:center;height:38px;border-radius:10px;font-size:.88rem;color:var(--muted);opacity:.55}
+    .cal .out{opacity:.25}
+    .cal a.day{opacity:1;color:#fff;background:var(--brand);font-weight:800}
+    .cal a.day:hover{background:var(--navy)}
+    .cal .day.today{outline:2px solid var(--navy);outline-offset:1px}
+    [data-theme="dark"] .cal .day.today{outline-color:#fff}
+    .cal-legend{display:flex;gap:14px;margin-top:12px;font-size:.74rem;color:var(--muted)}
+    .cal-legend i{display:inline-block;width:12px;height:12px;border-radius:4px;background:var(--brand);margin-right:6px;vertical-align:-1px}
+    .cal-today{margin-top:12px;width:100%}
+
+    /* Ventana Sur y suplementos */
+    .shelf{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:24px 20px}
+    .shelf .cover-item .paper{aspect-ratio:140/176}
+    .shelf-note{margin:-6px 0 18px;color:var(--muted);font-size:.9rem}
+
+    .ad-gob{margin:36px 0}
+
+    @media(max-width:1000px){.issue{grid-template-columns:300px minmax(0,1fr);padding:30px;gap:30px}}
+    @media(max-width:900px){
+      .archive{grid-template-columns:1fr}
+      .covers{grid-template-columns:repeat(3,minmax(0,1fr))}
+    }
+    @media(max-width:700px){
+      .issue{grid-template-columns:1fr;justify-items:center;text-align:center;padding:28px 20px}
+      .issue .cover-card{width:min(300px,78%)}
+      .issue-info .eyebrow{justify-content:center}.issue-actions{justify-content:center}.issue-info p{margin-inline:auto}
+      .covers{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 16px}
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<!-- Logo oficial de diariopresente.mx (SVG original, trazo sin color para recolorear con --logo) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo-dp" viewBox="0 0 274.8 38"><path d="M26.4,10h.2c2.3-1.1,5.5-2.8,8.7-2.8a32.4,32.4,0,0,0-8.1,4.2,30.9,30.9,0,0,0-6.6,6.4c-2,2.9-2.7,4.7-2.8,6s1.6,2,2.4,1.9C25,25,38,14.1,41.2,7.4a7.7,7.7,0,0,0-2.1-5c-1.4.2-3.3.8-6.3,2.8S29,8,26.4,10ZM23.5,7.7C29,3.3,33.9,1.1,37.3,1a7.7,7.7,0,0,0-3.8-1H13.2A7.7,7.7,0,0,0,5.5,7.7V27.1C9.6,21.9,17.1,12.9,23.5,7.7Zm36.4,6.9a5.9,5.9,0,0,0-1.5-.9,5.2,5.2,0,0,0-2-.4,6,6,0,0,0-2.7.6,6.3,6.3,0,0,0-2.1,1.7,7.9,7.9,0,0,0-1.4,2.6,10.5,10.5,0,0,0-.5,3.2,12.1,12.1,0,0,0,.4,3.4,7.9,7.9,0,0,0,1.2,2.5,5.2,5.2,0,0,0,1.8,1.6,4.8,4.8,0,0,0,2.2.5l1.5-.2,1.3-.4,1.1-.7,1-.9.4,1.2a1,1,0,0,0,.4.6l.7.2h2.9V6.7H59.9Zm0,9.8-.6.6-.7.4-.8.3H57l-1-.2a1.9,1.9,0,0,1-.8-.7,4.3,4.3,0,0,1-.5-1.4,10.1,10.1,0,0,1-.2-2.1,9.1,9.1,0,0,1,.2-2.2,4.3,4.3,0,0,1,.6-1.5,2.4,2.4,0,0,1,.9-.8l1.2-.3,1.3.2a3.1,3.1,0,0,1,1.1.8Zm39.5,4.8h4.6V13.6H99.4ZM94.7,14.1a7.6,7.6,0,0,0-1.9,2.1l-.3-1.5v-.5l-.2-.3-.4-.2H88.4V29.2H93V19.6a3.2,3.2,0,0,1,2.9-1.9h1.9a.7.7,0,0,0,.2-.4l.6-3.4a2.7,2.7,0,0,0-1.7-.5A3.9,3.9,0,0,0,94.7,14.1ZM71.2,7.4l-.9-.6-1.1-.2-1.1.2-.9.6a2.8,2.8,0,0,0-.6.9,2.6,2.6,0,0,0-.2,1.1,2.5,2.5,0,0,0,.2,1,2.7,2.7,0,0,0,.6.9l.9.6,1.1.2,1.1-.2.9-.6a2.7,2.7,0,0,0,.6-.9,2.5,2.5,0,0,0,.2-1,2.5,2.5,0,0,0-.2-1.1A2.8,2.8,0,0,0,71.2,7.4ZM66.8,29.2h4.6V13.6H66.8ZM85,15.1A5.5,5.5,0,0,0,83,13.8a6.7,6.7,0,0,0-2.5-.5,11,11,0,0,0-3.7.6,9.5,9.5,0,0,0-3.1,1.9l.8,1.5.5.6.8.2.9-.2.8-.4.9-.4,1.3-.2a2.1,2.1,0,0,1,1.6.6,2.9,2.9,0,0,1,.6,2v.7a17.1,17.1,0,0,0-4.4.5,9.2,9.2,0,0,0-2.8,1.2,4.2,4.2,0,0,0-1.5,1.6,3.9,3.9,0,0,0-.4,1.7,4.9,4.9,0,0,0,.3,1.9,3.6,3.6,0,0,0,.9,1.3,4,4,0,0,0,1.5.8,6.3,6.3,0,0,0,1.9.3h1.4l1.2-.4,1.1-.6,1.1-.9.3.9a1.4,1.4,0,0,0,.6.7l1,.2h2.1V19.5a7,7,0,0,0-.4-2.5A5.6,5.6,0,0,0,85,15.1ZM82.1,25a4.8,4.8,0,0,1-1.4,1,3.7,3.7,0,0,1-1.6.3,2.1,2.1,0,0,1-1.3-.3,1.3,1.3,0,0,1-.4-1.1,1.5,1.5,0,0,1,.2-.8,1.7,1.7,0,0,1,.7-.6l1.4-.5,2.3-.2ZM35.2,21.3c-4.3,4-10.8,8.2-15.5,8.4a4.7,4.7,0,0,1-2.9-.8c-.8-.7-1.1-1.9-1-3.4a21.9,21.9,0,0,1,1.8-6.8c-.8.5-3.3,2.9-11.1,13.1a7.7,7.7,0,0,0,6.8,4.1H33.5A7.7,7.7,0,0,0,41.3,28V13.3A29.1,29.1,0,0,1,35.2,21.3ZM103.8,7.4l-.9-.6-1.1-.2-1.1.2-.9.6a2.8,2.8,0,0,0-.6.9A2.6,2.6,0,0,0,99,9.4a2.5,2.5,0,0,0,.2,1,2.7,2.7,0,0,0,.6.9l.9.6,1.1.2,1.1-.2.9-.6a2.7,2.7,0,0,0,.6-.9,2.5,2.5,0,0,0,.2-1,2.5,2.5,0,0,0-.2-1.1A2.8,2.8,0,0,0,103.8,7.4Zm31.7,8a5.2,5.2,0,0,0-1.8-1.6,4.8,4.8,0,0,0-2.2-.5l-1.5.2-1.3.5-1.1.7-1,.9-.3-1.1a1,1,0,0,0-.4-.6l-.7-.2h-2.9V34.1h4.6v-6a5.5,5.5,0,0,0,1.5.9,5.3,5.3,0,0,0,2,.3,5.9,5.9,0,0,0,2.7-.6,6.3,6.3,0,0,0,2.1-1.7,8.1,8.1,0,0,0,1.4-2.6,10.3,10.3,0,0,0,.5-3.2,12.1,12.1,0,0,0-.4-3.4A7.9,7.9,0,0,0,135.4,15.4Zm-3.4,8a4.4,4.4,0,0,1-.6,1.5,2.4,2.4,0,0,1-.9.8l-1.2.3-1.3-.2a2.9,2.9,0,0,1-1.1-.8V18.4l.6-.6.7-.5.8-.3h.9l1,.2a2,2,0,0,1,.8.7,4.3,4.3,0,0,1,.5,1.4,10.1,10.1,0,0,1,.2,2.1A9.2,9.2,0,0,1,132,23.5Zm96.3-8.2a6.1,6.1,0,0,0-2.2-1.4,8.6,8.6,0,0,0-6,.1,7.2,7.2,0,0,0-3.9,4.1,8.2,8.2,0,0,0-.5,3,9.7,9.7,0,0,0,.6,3.6,7.5,7.5,0,0,0,1.7,2.6,7,7,0,0,0,2.5,1.6,8.7,8.7,0,0,0,3.1.5h1.7l1.8-.4,1.7-.8a6.9,6.9,0,0,0,1.6-1.3l-1.3-1.7a1,1,0,0,0-.8-.4l-.8.2-.8.4-1,.4-1.4.2a3.5,3.5,0,0,1-2.5-.9,4.4,4.4,0,0,1-1.2-2.8h9.5l.3-.3a1.4,1.4,0,0,0,.2-.5,6.6,6.6,0,0,0,0-.9,8.2,8.2,0,0,0-.5-3A6.4,6.4,0,0,0,228.3,15.3Zm-8,4.3a3.9,3.9,0,0,1,1-2.2,2.8,2.8,0,0,1,2.1-.8l1.3.3a2.4,2.4,0,0,1,.8.7,2.6,2.6,0,0,1,.5.9,4.1,4.1,0,0,1,.1,1.1ZM203,15.1a4.7,4.7,0,0,0-1.7-1.2,5.4,5.4,0,0,0-2.3-.4h-1.4l-1.2.4-1,.6-.9.8-.3-.9a1,1,0,0,0-.4-.6l-.7-.2h-2.9V29.2h4.6V18.1l1.3-.9a3.2,3.2,0,0,1,1.4-.3,1.9,1.9,0,0,1,1.5.6,2.7,2.7,0,0,1,.5,1.8v9.9h4.6V19.3a7.8,7.8,0,0,0-.3-2.4A5.3,5.3,0,0,0,203,15.1Zm11.3,10.5h-1.6a.9.9,0,0,1-.8-.4,1.5,1.5,0,0,1-.3-.9V16.8h3.8V13.7h-3.8V9.1h-2.4a.9.9,0,0,0-1,.7l-.9,3.8-2.5.5v1.8a.9.9,0,0,0,.3.7l.6.2H207v8a5.5,5.5,0,0,0,.3,1.9,3.8,3.8,0,0,0,2.3,2.3,5.5,5.5,0,0,0,2,.3,8,8,0,0,0,2.3-.3,6.4,6.4,0,0,0,2-1l-1.4-2.2ZM233.6,27l-.4-.3H232l-.4.3-.3.4a1.4,1.4,0,0,0-.1.5,1.4,1.4,0,0,0,1.4,1.4h.5l.4-.3.3-.4a1.3,1.3,0,0,0,.1-.5,1.3,1.3,0,0,0-.1-.5Zm21-11.6a4,4,0,0,0-1.5-1.1,5.1,5.1,0,0,0-2-.4l-1.5.2-1.4.7A4.7,4.7,0,0,0,247,16a5.2,5.2,0,0,0-.8,1.6A5,5,0,0,0,245,15a3.6,3.6,0,0,0-2.6-1l-1.3.2-1.2.6-1.1.9-.9,1.1V14.6a.4.4,0,0,0-.4-.4h-.8V29.2h1.4V17.9a6.9,6.9,0,0,1,1.8-2,3.8,3.8,0,0,1,2.2-.7,3,3,0,0,1,2.5,1.2,5.5,5.5,0,0,1,.9,3.3v9.5h1.4V19.6a5.4,5.4,0,0,1,.3-1.9,4.1,4.1,0,0,1,.9-1.4,3.6,3.6,0,0,1,1.3-.8l1.5-.3a3.3,3.3,0,0,1,2.7,1.1,5.1,5.1,0,0,1,.9,3.3v9.5h1.4V19.6a8,8,0,0,0-.3-2.4A4.9,4.9,0,0,0,254.5,15.5Zm-81.3,5.9-1.2-.8-1.3-.6-1.3-.4-1.2-.4-.8-.5a.9.9,0,0,1-.3-.7,1.1,1.1,0,0,1,.5-.9,2.3,2.3,0,0,1,1.4-.3h1.1l.9.3.7.3h1.2l.4-.4,1-1.6-1-.8L172,14l-1.5-.4h-1.6a8.3,8.3,0,0,0-2.7.4,5.6,5.6,0,0,0-1.9,1.1,4.4,4.4,0,0,0-1.1,1.6,4.7,4.7,0,0,0-.4,1.9,4.7,4.7,0,0,0,.3,1.8,4,4,0,0,0,.8,1.3l1.2.9,1.3.6,1.3.4,1.2.4.8.5a1,1,0,0,1,.3.8,1.2,1.2,0,0,1-.1.5l-.3.4-.6.3h-.9l-1.3-.2-.9-.4-.7-.4-.7-.2-.7.2-.5.5-1.1,1.7,1.1.8,1.4.6,1.5.4h1.6a9.3,9.3,0,0,0,2.8-.4,5.9,5.9,0,0,0,2.1-1.1,4.5,4.5,0,0,0,1.3-1.7,5.3,5.3,0,0,0,.4-2.1,3.9,3.9,0,0,0-.3-1.6A3.5,3.5,0,0,0,173.2,21.4Zm-26.6-8a3.9,3.9,0,0,0-2.3.8,7.6,7.6,0,0,0-1.9,2.1l-.3-1.5v-.5l-.2-.3-.4-.2H138V29.2h4.6V19.6a3.2,3.2,0,0,1,2.9-1.9h1.9a.7.7,0,0,0,.2-.4l.6-3.4A2.7,2.7,0,0,0,146.6,13.3Zm14.5,11.8a1,1,0,0,0-.8-.4l-.8.2-.8.4-1,.4-1.4.2a3.5,3.5,0,0,1-2.5-.9,4.4,4.4,0,0,1-1.2-2.8H162l.3-.3a1.4,1.4,0,0,0,.2-.5,6.6,6.6,0,0,0,0-.9,8.2,8.2,0,0,0-.5-3,6.4,6.4,0,0,0-1.4-2.2,6.1,6.1,0,0,0-2.2-1.4,8.6,8.6,0,0,0-6,.1,7.2,7.2,0,0,0-3.9,4.1,8.2,8.2,0,0,0-.5,3,9.7,9.7,0,0,0,.6,3.6,7.5,7.5,0,0,0,1.7,2.6,7,7,0,0,0,2.5,1.6,8.7,8.7,0,0,0,3.1.5h1.7l1.8-.4,1.7-.8a6.9,6.9,0,0,0,1.6-1.3Zm-7.5-7.7a2.8,2.8,0,0,1,2.1-.8l1.3.3a2.4,2.4,0,0,1,.8.7,2.6,2.6,0,0,1,.5.9,4.1,4.1,0,0,1,.1,1.1h-5.8A3.9,3.9,0,0,1,153.6,17.4ZM119,15.5a7.1,7.1,0,0,0-2.5-1.6,9,9,0,0,0-3.2-.6,9.1,9.1,0,0,0-3.2.6,7.2,7.2,0,0,0-2.5,1.6,7.1,7.1,0,0,0-1.6,2.5,9.1,9.1,0,0,0-.6,3.3,9.2,9.2,0,0,0,.6,3.4,7.1,7.1,0,0,0,1.6,2.5,7.2,7.2,0,0,0,2.5,1.6,9,9,0,0,0,3.2.6,8.9,8.9,0,0,0,3.2-.6,7.1,7.1,0,0,0,2.5-1.6,7.2,7.2,0,0,0,1.6-2.5,9.2,9.2,0,0,0,.6-3.4,9.1,9.1,0,0,0-.6-3.3A7.2,7.2,0,0,0,119,15.5Zm-3.4,9.3a2.6,2.6,0,0,1-2.4,1.1,2.7,2.7,0,0,1-2.4-1.1,6.2,6.2,0,0,1-.8-3.4,6.2,6.2,0,0,1,.8-3.4,2.7,2.7,0,0,1,2.4-1.1,2.6,2.6,0,0,1,2.4,1.1,6.2,6.2,0,0,1,.8,3.4A6.3,6.3,0,0,1,115.6,24.8Zm71.5-9.6a6.1,6.1,0,0,0-2.2-1.4,8.6,8.6,0,0,0-6,.1,7.2,7.2,0,0,0-3.9,4.1,8.2,8.2,0,0,0-.5,3,9.7,9.7,0,0,0,.6,3.6,7.5,7.5,0,0,0,1.7,2.6,7,7,0,0,0,2.5,1.6,8.7,8.7,0,0,0,3.1.5H184l1.8-.4,1.7-.8a6.9,6.9,0,0,0,1.6-1.3l-1.3-1.7a1,1,0,0,0-.8-.4l-.8.2-.8.4-1,.4-1.4.2a3.5,3.5,0,0,1-2.5-.9,4.4,4.4,0,0,1-1.2-2.8h9.5l.3-.3a1.4,1.4,0,0,0,.2-.5,6.5,6.5,0,0,0,0-.9,8.2,8.2,0,0,0-.5-3A6.4,6.4,0,0,0,187.1,15.3Zm-8,4.3a3.9,3.9,0,0,1,1-2.2,2.8,2.8,0,0,1,2.1-.8l1.3.3a2.4,2.4,0,0,1,.8.7,2.6,2.6,0,0,1,.5.9,4.1,4.1,0,0,1,.1,1.1Zm85.2,1.9,5.2-7.2h-1.6l-.2.2-4.1,5.8-.3.5L259,14.6l-.2-.2h-1.7l5.2,7.3-5.4,7.6h1.6l.2-.2,4.3-6.1.2-.5,4.5,6.6.2.2h1.7Z"/></symbol></svg>
+<header>
+  <div class="topline"><div class="container">
+    <span id="today">Villahermosa, Tabasco</span>
+    <nav class="top-links" aria-label="Enlaces rápidos">
+      <a href="/contacto">Contáctanos</a>
+      <span class="socials" aria-label="Redes sociales"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="X / Twitter">X</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="YouTube">YT</a></span>
+      <a class="print-link" href="edicion.html" aria-current="page">Edición impresa</a>
+    </nav>
+  </div></div>
+
+  <div class="masthead"><div class="container masthead-row">
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">☰</button>
+    <div class="weather"><b>Villahermosa</b><span>Clima local · conectar API</span></div>
+    <a class="brand" href="index.html" aria-label="Diario Presente, inicio"><svg class="logo" viewBox="0 0 274.8 38" role="img" aria-label="diariopresente.mx"><use href="#logo-dp"/></svg></a>
+    <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
+  </div></div>
+
+  <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
+  <nav class="nav" aria-label="Secciones principales">
+    <div class="container nav-row" id="navMenu">
+      <a href="index.html">Inicio</a>
+      <a href="seccion.html">Tabasco</a>
+      <a href="/villahermosa">Villahermosa</a>
+      <a href="/sucesos">Sucesos</a>
+      <a href="/mexico">México</a>
+      <a href="/politica">Política</a>
+      <div class="dropdown">
+        <a href="/deportes" aria-haspopup="true">Deportes ▾</a>
+        <div class="dropdown-content"><a href="/deportes/tabasco/">Tabasco</a><a href="/deportes/mundo/">Mundo</a></div>
+      </div>
+      <a href="/espectaculos">Espectáculos</a>
+      <a href="opinion.html">Opinión</a>
+      <div class="dropdown">
+        <a href="#" aria-haspopup="true">Más ▾</a>
+        <div class="dropdown-content"><a href="/mundo">Mundo</a><a href="/actualidad">Actualidad</a><a href="/cultura">Cultura</a><a href="/sociales">Sociales</a><a href="index.html#multimedia">Multimedia</a></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breaking" role="region" aria-label="Última hora"><div class="container breaking-row"><span class="breaking-label">Última hora</span><div class="ticker"><div class="ticker-track" id="tickerTrack"></div></div></div></div>
+</header>
+
+<main id="contenido"><div class="container">
+
+  <!-- ANUNCIO 1 · Leaderboard superior (slot GAM top_large_leaderboard) -->
+  <aside class="ad-gob" aria-label="Publicidad 1" style="margin-bottom:0">
+    <span class="ad-label">Gobierno de Tabasco</span>
+    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
+    <p>Slot GAM: <code>top_large_leaderboard</code></p>
+  </aside>
+
+  <nav class="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Edición impresa</span></nav>
+
+  <header class="sec-head">
+    <h1>Edición impresa</h1>
+    <p>El periódico de cada día, en línea: lee la edición de hoy, consulta las anteriores y los suplementos.</p>
+  </header>
+
+  <!-- EDICIÓN DE HOY -->
+  <section class="issue" aria-labelledby="hoyTitulo">
+    <a class="cover-card" href="https://online.fliphtml5.com/tfthn/Presente-20-10-2026/" target="_blank" rel="noopener" aria-label="Leer la edición impresa del martes 20 de octubre de 2026">
+      <span class="paper"><img src="https://blob.diariopresente.mx/images/2026/10/20/presente01-79539df6.jpg" alt="Portada de Diario Presente, martes 20 de octubre de 2026" loading="eager" onerror="this.remove()"></span>
+    </a>
+    <div class="issue-info">
+      <span class="eyebrow">Edición de hoy</span>
+      <h2 id="hoyTitulo">Martes 20 de octubre de 2026</h2>
+      <p>Consulta la edición completa de Diario Presente en el lector en línea, página por página.</p>
+      <div class="issue-actions">
+        <a class="btn" href="https://online.fliphtml5.com/tfthn/Presente-20-10-2026/" target="_blank" rel="noopener" style="background:var(--brand)">Leer edición completa</a>
+        <a class="btn ghost" href="#calendario">Elegir otra fecha</a>
+      </div>
+      <small>Se abre en el lector de ediciones (FlipHTML5) en una pestaña nueva.</small>
+    </div>
+  </section>
+
+  <!-- RECIENTES + CALENDARIO -->
+  <div class="section-head"><h2>Ediciones recientes</h2></div>
+  <div class="archive">
+    <div class="covers" id="recent"></div>
+
+    <aside class="panel cal" id="calendario" aria-label="Calendario de ediciones">
+      <div class="cal-head">
+        <button type="button" id="calPrev" aria-label="Mes anterior">‹</button>
+        <h3 id="calTitle" aria-live="polite"></h3>
+        <button type="button" id="calNext" aria-label="Mes siguiente">›</button>
+      </div>
+      <table aria-labelledby="calTitle"><thead><tr><th scope="col">lun</th><th scope="col">mar</th><th scope="col">mié</th><th scope="col">jue</th><th scope="col">vie</th><th scope="col">sáb</th><th scope="col">dom</th></tr></thead><tbody id="calBody"></tbody></table>
+      <div class="cal-legend"><span><i></i>Con edición</span></div>
+      <a class="btn ghost cal-today" href="https://online.fliphtml5.com/tfthn/Presente-20-10-2026/" target="_blank" rel="noopener">Ir a la de hoy</a>
+    </aside>
+  </div>
+
+  <!-- ANUNCIO 2 · In-feed -->
+  <aside class="ad-gob" aria-label="Publicidad 2">
+    <span class="ad-label">Gobierno de Tabasco</span>
+    <strong>Programas de Bienestar y Desarrollo Social 2026</strong>
+    <p>Slot GAM: <code>top_leaderboard</code> (728 × 90)</p>
+  </aside>
+
+  <!-- VENTANA SUR -->
+  <div class="section-head"><h2>Ventana Sur</h2><a href="#">Ver todas →</a></div>
+  <p class="shelf-note">Las ediciones de los sábados.</p>
+  <div class="shelf" id="ventana"></div>
+
+  <!-- SUPLEMENTOS -->
+  <div class="section-head"><h2>Suplementos</h2><a href="#">Ver todos →</a></div>
+  <div class="shelf" id="suplementos"></div>
+</div></main>
+
+<footer><div class="container">
+  <div class="footer-grid">
+    <div><div class="footer-brand"><svg class="logo" viewBox="0 0 274.8 38" role="img" aria-label="diariopresente.mx"><use href="#logo-dp"/></svg></div><p>En Tabasco, Diario del Sureste de México. Periodismo local, útil y cercano.</p><p><a href="#">Acerca de Grupo Presente Multimedios</a></p></div>
+    <div><h3>Secciones</h3><ul><li><a href="seccion.html">Tabasco</a></li><li><a href="/villahermosa">Villahermosa</a></li><li><a href="/sucesos">Sucesos</a></li><li><a href="/mexico">México</a></li><li><a href="/politica">Política</a></li><li><a href="/mundo">Mundo</a></li></ul></div>
+    <div><h3>Más</h3><ul><li><a href="/deportes">Deportes</a></li><li><a href="/espectaculos">Espectáculos</a></li><li><a href="/actualidad">Actualidad</a></li><li><a href="/cultura">Cultura</a></li><li><a href="/sociales">Sociales</a></li><li><a href="opinion.html">Opinión</a></li></ul></div>
+    <div><h3>Contacto</h3><address>Av. Pagés Llergo No. 116,<br>Nueva Villahermosa, Tabasco<br>Tel. (01 993) 312-17-55<br><a href="/contacto">Escríbenos</a></address></div>
+  </div>
+  <div class="legal"><span>© 2026 Diario Presente. Todos los derechos reservados.</span><span><a href="#">Términos legales y aviso de privacidad</a></span></div>
+</div></footer>
+
+<dialog id="searchDialog"><div class="search-box"><button class="close" id="closeSearch" aria-label="Cerrar">×</button><h2>Buscar noticias</h2><form class="search-line"><label class="sr-only" for="query">Buscar</label><input id="query" type="search" placeholder="Escribe una palabra o tema…" autofocus><button class="btn">Buscar</button></form></div></dialog>
+<script>
+const B='https://blob.diariopresente.mx/images/';
+/* Portadas reales de diariopresente.mx/edicionimpresa (20-oct-2026): [fecha dd/mm/aaaa, enlace, imagen] */
+const RECENT=[
+  ['19/10/2026','/edicionimpresa/10-19-2026','2026/10/19/presente01-2999dc42-focus-0-0-380-488.webp'],
+  ['17/10/2026','/edicionimpresa/10-17-2026','2026/10/17/presente01-cd1affda-focus-0-0-380-488.webp'],
+  ['16/10/2026','/edicionimpresa/10-16-2026','2026/10/16/presente01-0eabba65-focus-0-0-380-488.webp'],
+  ['15/10/2026','/edicionimpresa/10-15-2026','2026/10/15/presente01-68029667-focus-0-0-380-488.webp'],
+  ['14/10/2026','/edicionimpresa/10-14-2026','2026/10/14/presente01-3bb586a2-focus-0-0-380-488.webp'],
+  ['13/10/2026','/edicionimpresa/10-13-2026','2026/10/13/presente01-42c4ad87-focus-0-0-380-488.webp']
+];
+const VENTANA=[
+  ['17/10/2026','https://online.fliphtml5.com/tfthn/VentanaSur-17-10-2026/','2026/10/17/ventanasur01-b07cb34b-focus-0-0-140-176.webp'],
+  ['10/10/2026','https://online.fliphtml5.com/tfthn/VentanaSur_-10-10-2026/','2026/10/10/ventanasur01-4e509161-focus-0-0-140-176.webp'],
+  ['03/10/2026','https://online.fliphtml5.com/tfthn/VentanaSur-03-10-2026/','2026/10/03/ventanasur01-4a7b174f-focus-0-0-140-176.webp']
+];
+const SUPL=[
+  ['06/01/2026','https://online.fliphtml5.com/tfthn/zoid/','2026/01/06/crop-w1714-h2156-captura-de-maduropage-0001-ef857137-focus-0-0-140-176.webp'],
+  ['06/01/2026','https://online.fliphtml5.com/tfthn/sfmo/','2026/01/06/crop-w541-h681-especial-librospage-0001-5e30ac42-focus-0-0-140-176.webp']
+];
+/* Fechas con edición conocidas en el draft (octubre 2026). En producción vienen del archivo del CMS. */
+const HAS=new Set(['2026-10-13','2026-10-14','2026-10-15','2026-10-16','2026-10-17','2026-10-19','2026-10-20']);
+const TODAY=new Date(2026,9,20);
+const URL_DAY=d=>d==='2026-10-20'?'https://online.fliphtml5.com/tfthn/Presente-20-10-2026/':'/edicionimpresa/'+d.slice(5,7)+'-'+d.slice(8,10)+'-'+d.slice(0,4);
+
+const P=f=>{const [d,m,y]=f.split('/').map(Number);return new Date(y,m-1,d)};
+const long=f=>{const s=new Intl.DateTimeFormat('es-MX',{weekday:'long',day:'numeric',month:'long'}).format(P(f));return s.charAt(0).toUpperCase()+s.slice(1)};
+const short=f=>new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'short',year:'numeric'}).format(P(f)).replace(/\./g,'');
+const wd=f=>{const s=new Intl.DateTimeFormat('es-MX',{weekday:'long'}).format(P(f));return s.charAt(0).toUpperCase()+s.slice(1)};
+const ext=h=>/^https?:/.test(h)?' target="_blank" rel="noopener"':'';
+const card=(kind,it,label)=>`<a class="cover-item cover-card" href="${it[1]}"${ext(it[1])} aria-label="${label}">
+  <span class="paper"><img src="${B+it[2]}" alt="${label}" loading="lazy" onerror="this.remove()"></span>
+  <span><span class="d">${kind==='day'?wd(it[0]):'Suplemento'}</span><b>${kind==='day'?short(it[0]).replace(/ de /g,' '):short(it[0])}</b></span></a>`;
+
+document.getElementById('recent').innerHTML=RECENT.map(it=>card('day',it,'Edición impresa del '+long(it[0]).toLowerCase())).join('');
+document.getElementById('ventana').innerHTML=VENTANA.map(it=>card('day',it,'Ventana Sur del '+long(it[0]).toLowerCase())).join('');
+document.getElementById('suplementos').innerHTML=SUPL.map(it=>card('sup',it,'Suplemento del '+long(it[0]).toLowerCase())).join('');
+
+/* Calendario mensual (lunes a domingo). Solo los días con edición son enlaces. */
+let view=new Date(TODAY.getFullYear(),TODAY.getMonth(),1);
+const body=document.getElementById('calBody'),title=document.getElementById('calTitle');
+const pad=n=>String(n).padStart(2,'0');
+function drawCal(){
+  title.textContent=new Intl.DateTimeFormat('es-MX',{month:'long',year:'numeric'}).format(view);
+  const first=(view.getDay()+6)%7, days=new Date(view.getFullYear(),view.getMonth()+1,0).getDate();
+  const prevDays=new Date(view.getFullYear(),view.getMonth(),0).getDate();
+  let cells=[];
+  for(let i=first-1;i>=0;i--)cells.push({n:prevDays-i,out:true});
+  for(let d=1;d<=days;d++)cells.push({n:d,iso:`${view.getFullYear()}-${pad(view.getMonth()+1)}-${pad(d)}`});
+  while(cells.length%7)cells.push({n:cells.length-days-first+1,out:true});
+  let html='';
+  for(let r=0;r<cells.length/7;r++){
+    html+='<tr>'+cells.slice(r*7,r*7+7).map(c=>{
+      if(c.out)return `<td><span class="day out">${c.n}</span></td>`;
+      const isToday=c.iso==='2026-10-20';
+      if(HAS.has(c.iso))return `<td><a class="day${isToday?' today':''}" href="${URL_DAY(c.iso)}"${ext(URL_DAY(c.iso))} aria-label="Edición del ${c.n} de ${new Intl.DateTimeFormat('es-MX',{month:'long'}).format(view)}"${isToday?' aria-current="date"':''}>${c.n}</a></td>`;
+      return `<td><span class="day">${c.n}</span></td>`;
+    }).join('')+'</tr>';
+  }
+  body.innerHTML=html;
+}
+document.getElementById('calPrev').addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()-1,1);drawCal()});
+document.getElementById('calNext').addEventListener('click',()=>{view=new Date(view.getFullYear(),view.getMonth()+1,1);drawCal()});
+drawCal();
+
+const TICK=[
+  ['Gobierno del Pueblo de Tabasco cumple compromiso con la rehabilitación integral del Parque Museo La Venta','nota.html'],
+  ['Nuevas condiciones para visas H-1B en Estados Unidos','/mundo/medidas-migratorias-de-trump-revocacion-de-visas/470436'],
+  ['Selena Gomez comparte su experiencia dejando el vapeo','/espectaculos/selena-gomez-deja-el-vapeo-y-habla-sobre-su-voz/470435'],
+  ['Incendio en plataforma Abkatún-H: Pemex despliega protocolos de seguridad','/sucesos/incendio-en-plataforma-abkatun-h-pemex-activa-protocolos/470340']
+];
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+const tk=TICK.map(a=>`<a href="${a[1]}">${esc(a[0])}</a>`).join('');
+document.getElementById('tickerTrack').innerHTML=tk+tk;
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>

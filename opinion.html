@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es-MX" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#184F76">
+  <title>Opinión | Diario Presente</title>
+  <meta name="description" content="Columnas de opinión de Diario Presente: análisis político, económico y social de Tabasco y México.">
+  <link rel="canonical" href="https://diariopresente.mx/opinion">
+  <link rel="stylesheet" href="assets/site.css">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"CollectionPage","name":"Opinión","url":"https://diariopresente.mx/opinion",
+   "isPartOf":{"@type":"WebSite","name":"Diario Presente","url":"https://diariopresente.mx/"},
+   "breadcrumb":{"@type":"BreadcrumbList","itemListElement":[
+     {"@type":"ListItem","position":1,"name":"Inicio","item":"https://diariopresente.mx/"},
+     {"@type":"ListItem","position":2,"name":"Opinión","item":"https://diariopresente.mx/opinion"}]}}
+  </script>
+  <style>
+
+    .sec-head{margin:12px 0 26px;padding-bottom:14px;border-bottom:4px solid var(--brand)}
+    .sec-head h1{font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;letter-spacing:-.04em;margin:0;color:var(--navy)}
+    [data-theme="dark"] .sec-head h1{color:#fff}
+    .sec-head p{margin:8px 0 0;color:var(--muted);max-width:60ch}
+
+    /* Columnas de hoy */
+    .today{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+    .col-feature{position:relative;display:flex;flex-direction:column;gap:12px;background:var(--card);border:1px solid var(--line);border-top:4px solid var(--brand);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow)}
+    .col-feature .kicker{font-size:.74rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+    .col-feature h3{font-family:Georgia,serif;font-size:1.35rem;line-height:1.18;margin:0;color:var(--navy)}
+    [data-theme="dark"] .col-feature h3{color:#fff}
+    .col-feature .who{margin-top:auto;display:flex;align-items:center;gap:12px;padding-top:12px;border-top:1px solid var(--line);font-size:.82rem;color:var(--muted)}
+    .col-feature .who b{display:block;color:var(--ink);font-size:.86rem;line-height:1.2}
+    .col-feature .avatar{width:44px;height:44px;font-size:.95rem;flex:none}
+    .col-feature.big{grid-column:span 2;grid-row:span 2;padding:30px 32px;justify-content:flex-start}
+    .col-feature.big:before{content:"“";position:absolute;right:26px;top:6px;font-family:Georgia,serif;font-size:7rem;line-height:1;color:var(--soft)}
+    .col-feature.big h3{font-size:clamp(1.7rem,3vw,2.5rem);line-height:1.1;letter-spacing:-.025em;position:relative;max-width:20ch}
+    .col-feature.big .avatar{width:56px;height:56px;font-size:1.15rem}
+    .col-feature a.stretch:after{content:"";position:absolute;inset:0}
+    .col-feature:hover{border-top-color:var(--navy)}
+
+    /* Columnistas */
+    .authors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+    .author{display:flex;align-items:center;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
+    .author:hover{border-color:var(--brand)}
+    .author .avatar{width:48px;height:48px;font-size:1rem;flex:none}
+    .author b{display:block;font-size:.9rem;line-height:1.2;color:var(--ink)}
+    .author span{font-family:Georgia,serif;font-size:.9rem;color:var(--accent)}
+
+    .sec-layout{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:38px}
+
+    /* Más columnas */
+    .day{display:flex;align-items:center;gap:12px;margin:30px 0 4px;font-size:.78rem;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+    .day:first-child{margin-top:0}.day:after{content:"";flex:1;height:1px;background:var(--line)}
+    .row{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:18px 0;border-bottom:1px solid var(--line);align-items:start}
+    .row .avatar{width:48px;height:48px;font-size:.95rem}
+    .row .kicker{font-size:.72rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+    .row h3{font-family:Georgia,serif;font-size:1.28rem;line-height:1.18;margin:4px 0 6px}
+    .row .by{font-size:.84rem;color:var(--muted)}.row .by b{color:var(--ink)}
+    .list .ad-gob{margin:22px 0}
+    .more{display:grid;justify-items:center;gap:10px;margin:30px 0 6px}
+    .more .btn{min-width:240px;padding:14px 22px}.more small{color:var(--muted);font-size:.82rem}.more.done .btn{display:none}
+    .disclaimer{margin-top:30px;padding:16px 18px;border-radius:12px;background:var(--soft);color:var(--muted);font-size:.82rem;line-height:1.5}
+
+    @media(max-width:1000px){.today{grid-template-columns:repeat(2,minmax(0,1fr))}.col-feature.big{grid-column:span 2;grid-row:auto}.authors{grid-template-columns:repeat(2,minmax(0,1fr))}}
+    @media(max-width:900px){.sec-layout{grid-template-columns:1fr}}
+    @media(max-width:620px){
+      .today,.authors{grid-template-columns:1fr}.col-feature.big{grid-column:auto;padding:24px}
+      .row{grid-template-columns:40px 1fr;gap:12px}.row .avatar{width:40px;height:40px;font-size:.85rem}
+      .row h3{font-size:1.1rem}
+    }
+  </style>
+</head>
+<body>
+<a class="skip" href="#contenido">Saltar al contenido</a>
+<!-- Logo oficial de diariopresente.mx (SVG original, trazo sin color para recolorear con --logo) -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo-dp" viewBox="0 0 274.8 38"><path d="M26.4,10h.2c2.3-1.1,5.5-2.8,8.7-2.8a32.4,32.4,0,0,0-8.1,4.2,30.9,30.9,0,0,0-6.6,6.4c-2,2.9-2.7,4.7-2.8,6s1.6,2,2.4,1.9C25,25,38,14.1,41.2,7.4a7.7,7.7,0,0,0-2.1-5c-1.4.2-3.3.8-6.3,2.8S29,8,26.4,10ZM23.5,7.7C29,3.3,33.9,1.1,37.3,1a7.7,7.7,0,0,0-3.8-1H13.2A7.7,7.7,0,0,0,5.5,7.7V27.1C9.6,21.9,17.1,12.9,23.5,7.7Zm36.4,6.9a5.9,5.9,0,0,0-1.5-.9,5.2,5.2,0,0,0-2-.4,6,6,0,0,0-2.7.6,6.3,6.3,0,0,0-2.1,1.7,7.9,7.9,0,0,0-1.4,2.6,10.5,10.5,0,0,0-.5,3.2,12.1,12.1,0,0,0,.4,3.4,7.9,7.9,0,0,0,1.2,2.5,5.2,5.2,0,0,0,1.8,1.6,4.8,4.8,0,0,0,2.2.5l1.5-.2,1.3-.4,1.1-.7,1-.9.4,1.2a1,1,0,0,0,.4.6l.7.2h2.9V6.7H59.9Zm0,9.8-.6.6-.7.4-.8.3H57l-1-.2a1.9,1.9,0,0,1-.8-.7,4.3,4.3,0,0,1-.5-1.4,10.1,10.1,0,0,1-.2-2.1,9.1,9.1,0,0,1,.2-2.2,4.3,4.3,0,0,1,.6-1.5,2.4,2.4,0,0,1,.9-.8l1.2-.3,1.3.2a3.1,3.1,0,0,1,1.1.8Zm39.5,4.8h4.6V13.6H99.4ZM94.7,14.1a7.6,7.6,0,0,0-1.9,2.1l-.3-1.5v-.5l-.2-.3-.4-.2H88.4V29.2H93V19.6a3.2,3.2,0,0,1,2.9-1.9h1.9a.7.7,0,0,0,.2-.4l.6-3.4a2.7,2.7,0,0,0-1.7-.5A3.9,3.9,0,0,0,94.7,14.1ZM71.2,7.4l-.9-.6-1.1-.2-1.1.2-.9.6a2.8,2.8,0,0,0-.6.9,2.6,2.6,0,0,0-.2,1.1,2.5,2.5,0,0,0,.2,1,2.7,2.7,0,0,0,.6.9l.9.6,1.1.2,1.1-.2.9-.6a2.7,2.7,0,0,0,.6-.9,2.5,2.5,0,0,0,.2-1,2.5,2.5,0,0,0-.2-1.1A2.8,2.8,0,0,0,71.2,7.4ZM66.8,29.2h4.6V13.6H66.8ZM85,15.1A5.5,5.5,0,0,0,83,13.8a6.7,6.7,0,0,0-2.5-.5,11,11,0,0,0-3.7.6,9.5,9.5,0,0,0-3.1,1.9l.8,1.5.5.6.8.2.9-.2.8-.4.9-.4,1.3-.2a2.1,2.1,0,0,1,1.6.6,2.9,2.9,0,0,1,.6,2v.7a17.1,17.1,0,0,0-4.4.5,9.2,9.2,0,0,0-2.8,1.2,4.2,4.2,0,0,0-1.5,1.6,3.9,3.9,0,0,0-.4,1.7,4.9,4.9,0,0,0,.3,1.9,3.6,3.6,0,0,0,.9,1.3,4,4,0,0,0,1.5.8,6.3,6.3,0,0,0,1.9.3h1.4l1.2-.4,1.1-.6,1.1-.9.3.9a1.4,1.4,0,0,0,.6.7l1,.2h2.1V19.5a7,7,0,0,0-.4-2.5A5.6,5.6,0,0,0,85,15.1ZM82.1,25a4.8,4.8,0,0,1-1.4,1,3.7,3.7,0,0,1-1.6.3,2.1,2.1,0,0,1-1.3-.3,1.3,1.3,0,0,1-.4-1.1,1.5,1.5,0,0,1,.2-.8,1.7,1.7,0,0,1,.7-.6l1.4-.5,2.3-.2ZM35.2,21.3c-4.3,4-10.8,8.2-15.5,8.4a4.7,4.7,0,0,1-2.9-.8c-.8-.7-1.1-1.9-1-3.4a21.9,21.9,0,0,1,1.8-6.8c-.8.5-3.3,2.9-11.1,13.1a7.7,7.7,0,0,0,6.8,4.1H33.5A7.7,7.7,0,0,0,41.3,28V13.3A29.1,29.1,0,0,1,35.2,21.3ZM103.8,7.4l-.9-.6-1.1-.2-1.1.2-.9.6a2.8,2.8,0,0,0-.6.9A2.6,2.6,0,0,0,99,9.4a2.5,2.5,0,0,0,.2,1,2.7,2.7,0,0,0,.6.9l.9.6,1.1.2,1.1-.2.9-.6a2.7,2.7,0,0,0,.6-.9,2.5,2.5,0,0,0,.2-1,2.5,2.5,0,0,0-.2-1.1A2.8,2.8,0,0,0,103.8,7.4Zm31.7,8a5.2,5.2,0,0,0-1.8-1.6,4.8,4.8,0,0,0-2.2-.5l-1.5.2-1.3.5-1.1.7-1,.9-.3-1.1a1,1,0,0,0-.4-.6l-.7-.2h-2.9V34.1h4.6v-6a5.5,5.5,0,0,0,1.5.9,5.3,5.3,0,0,0,2,.3,5.9,5.9,0,0,0,2.7-.6,6.3,6.3,0,0,0,2.1-1.7,8.1,8.1,0,0,0,1.4-2.6,10.3,10.3,0,0,0,.5-3.2,12.1,12.1,0,0,0-.4-3.4A7.9,7.9,0,0,0,135.4,15.4Zm-3.4,8a4.4,4.4,0,0,1-.6,1.5,2.4,2.4,0,0,1-.9.8l-1.2.3-1.3-.2a2.9,2.9,0,0,1-1.1-.8V18.4l.6-.6.7-.5.8-.3h.9l1,.2a2,2,0,0,1,.8.7,4.3,4.3,0,0,1,.5,1.4,10.1,10.1,0,0,1,.2,2.1A9.2,9.2,0,0,1,132,23.5Zm96.3-8.2a6.1,6.1,0,0,0-2.2-1.4,8.6,8.6,0,0,0-6,.1,7.2,7.2,0,0,0-3.9,4.1,8.2,8.2,0,0,0-.5,3,9.7,9.7,0,0,0,.6,3.6,7.5,7.5,0,0,0,1.7,2.6,7,7,0,0,0,2.5,1.6,8.7,8.7,0,0,0,3.1.5h1.7l1.8-.4,1.7-.8a6.9,6.9,0,0,0,1.6-1.3l-1.3-1.7a1,1,0,0,0-.8-.4l-.8.2-.8.4-1,.4-1.4.2a3.5,3.5,0,0,1-2.5-.9,4.4,4.4,0,0,1-1.2-2.8h9.5l.3-.3a1.4,1.4,0,0,0,.2-.5,6.6,6.6,0,0,0,0-.9,8.2,8.2,0,0,0-.5-3A6.4,6.4,0,0,0,228.3,15.3Zm-8,4.3a3.9,3.9,0,0,1,1-2.2,2.8,2.8,0,0,1,2.1-.8l1.3.3a2.4,2.4,0,0,1,.8.7,2.6,2.6,0,0,1,.5.9,4.1,4.1,0,0,1,.1,1.1ZM203,15.1a4.7,4.7,0,0,0-1.7-1.2,5.4,5.4,0,0,0-2.3-.4h-1.4l-1.2.4-1,.6-.9.8-.3-.9a1,1,0,0,0-.4-.6l-.7-.2h-2.9V29.2h4.6V18.1l1.3-.9a3.2,3.2,0,0,1,1.4-.3,1.9,1.9,0,0,1,1.5.6,2.7,2.7,0,0,1,.5,1.8v9.9h4.6V19.3a7.8,7.8,0,0,0-.3-2.4A5.3,5.3,0,0,0,203,15.1Zm11.3,10.5h-1.6a.9.9,0,0,1-.8-.4,1.5,1.5,0,0,1-.3-.9V16.8h3.8V13.7h-3.8V9.1h-2.4a.9.9,0,0,0-1,.7l-.9,3.8-2.5.5v1.8a.9.9,0,0,0,.3.7l.6.2H207v8a5.5,5.5,0,0,0,.3,1.9,3.8,3.8,0,0,0,2.3,2.3,5.5,5.5,0,0,0,2,.3,8,8,0,0,0,2.3-.3,6.4,6.4,0,0,0,2-1l-1.4-2.2ZM233.6,27l-.4-.3H232l-.4.3-.3.4a1.4,1.4,0,0,0-.1.5,1.4,1.4,0,0,0,1.4,1.4h.5l.4-.3.3-.4a1.3,1.3,0,0,0,.1-.5,1.3,1.3,0,0,0-.1-.5Zm21-11.6a4,4,0,0,0-1.5-1.1,5.1,5.1,0,0,0-2-.4l-1.5.2-1.4.7A4.7,4.7,0,0,0,247,16a5.2,5.2,0,0,0-.8,1.6A5,5,0,0,0,245,15a3.6,3.6,0,0,0-2.6-1l-1.3.2-1.2.6-1.1.9-.9,1.1V14.6a.4.4,0,0,0-.4-.4h-.8V29.2h1.4V17.9a6.9,6.9,0,0,1,1.8-2,3.8,3.8,0,0,1,2.2-.7,3,3,0,0,1,2.5,1.2,5.5,5.5,0,0,1,.9,3.3v9.5h1.4V19.6a5.4,5.4,0,0,1,.3-1.9,4.1,4.1,0,0,1,.9-1.4,3.6,3.6,0,0,1,1.3-.8l1.5-.3a3.3,3.3,0,0,1,2.7,1.1,5.1,5.1,0,0,1,.9,3.3v9.5h1.4V19.6a8,8,0,0,0-.3-2.4A4.9,4.9,0,0,0,254.5,15.5Zm-81.3,5.9-1.2-.8-1.3-.6-1.3-.4-1.2-.4-.8-.5a.9.9,0,0,1-.3-.7,1.1,1.1,0,0,1,.5-.9,2.3,2.3,0,0,1,1.4-.3h1.1l.9.3.7.3h1.2l.4-.4,1-1.6-1-.8L172,14l-1.5-.4h-1.6a8.3,8.3,0,0,0-2.7.4,5.6,5.6,0,0,0-1.9,1.1,4.4,4.4,0,0,0-1.1,1.6,4.7,4.7,0,0,0-.4,1.9,4.7,4.7,0,0,0,.3,1.8,4,4,0,0,0,.8,1.3l1.2.9,1.3.6,1.3.4,1.2.4.8.5a1,1,0,0,1,.3.8,1.2,1.2,0,0,1-.1.5l-.3.4-.6.3h-.9l-1.3-.2-.9-.4-.7-.4-.7-.2-.7.2-.5.5-1.1,1.7,1.1.8,1.4.6,1.5.4h1.6a9.3,9.3,0,0,0,2.8-.4,5.9,5.9,0,0,0,2.1-1.1,4.5,4.5,0,0,0,1.3-1.7,5.3,5.3,0,0,0,.4-2.1,3.9,3.9,0,0,0-.3-1.6A3.5,3.5,0,0,0,173.2,21.4Zm-26.6-8a3.9,3.9,0,0,0-2.3.8,7.6,7.6,0,0,0-1.9,2.1l-.3-1.5v-.5l-.2-.3-.4-.2H138V29.2h4.6V19.6a3.2,3.2,0,0,1,2.9-1.9h1.9a.7.7,0,0,0,.2-.4l.6-3.4A2.7,2.7,0,0,0,146.6,13.3Zm14.5,11.8a1,1,0,0,0-.8-.4l-.8.2-.8.4-1,.4-1.4.2a3.5,3.5,0,0,1-2.5-.9,4.4,4.4,0,0,1-1.2-2.8H162l.3-.3a1.4,1.4,0,0,0,.2-.5,6.6,6.6,0,0,0,0-.9,8.2,8.2,0,0,0-.5-3,6.4,6.4,0,0,0-1.4-2.2,6.1,6.1,0,0,0-2.2-1.4,8.6,8.6,0,0,0-6,.1,7.2,7.2,0,0,0-3.9,4.1,8.2,8.2,0,0,0-.5,3,9.7,9.7,0,0,0,.6,3.6,7.5,7.5,0,0,0,1.7,2.6,7,7,0,0,0,2.5,1.6,8.7,8.7,0,0,0,3.1.5h1.7l1.8-.4,1.7-.8a6.9,6.9,0,0,0,1.6-1.3Zm-7.5-7.7a2.8,2.8,0,0,1,2.1-.8l1.3.3a2.4,2.4,0,0,1,.8.7,2.6,2.6,0,0,1,.5.9,4.1,4.1,0,0,1,.1,1.1h-5.8A3.9,3.9,0,0,1,153.6,17.4ZM119,15.5a7.1,7.1,0,0,0-2.5-1.6,9,9,0,0,0-3.2-.6,9.1,9.1,0,0,0-3.2.6,7.2,7.2,0,0,0-2.5,1.6,7.1,7.1,0,0,0-1.6,2.5,9.1,9.1,0,0,0-.6,3.3,9.2,9.2,0,0,0,.6,3.4,7.1,7.1,0,0,0,1.6,2.5,7.2,7.2,0,0,0,2.5,1.6,9,9,0,0,0,3.2.6,8.9,8.9,0,0,0,3.2-.6,7.1,7.1,0,0,0,2.5-1.6,7.2,7.2,0,0,0,1.6-2.5,9.2,9.2,0,0,0,.6-3.4,9.1,9.1,0,0,0-.6-3.3A7.2,7.2,0,0,0,119,15.5Zm-3.4,9.3a2.6,2.6,0,0,1-2.4,1.1,2.7,2.7,0,0,1-2.4-1.1,6.2,6.2,0,0,1-.8-3.4,6.2,6.2,0,0,1,.8-3.4,2.7,2.7,0,0,1,2.4-1.1,2.6,2.6,0,0,1,2.4,1.1,6.2,6.2,0,0,1,.8,3.4A6.3,6.3,0,0,1,115.6,24.8Zm71.5-9.6a6.1,6.1,0,0,0-2.2-1.4,8.6,8.6,0,0,0-6,.1,7.2,7.2,0,0,0-3.9,4.1,8.2,8.2,0,0,0-.5,3,9.7,9.7,0,0,0,.6,3.6,7.5,7.5,0,0,0,1.7,2.6,7,7,0,0,0,2.5,1.6,8.7,8.7,0,0,0,3.1.5H184l1.8-.4,1.7-.8a6.9,6.9,0,0,0,1.6-1.3l-1.3-1.7a1,1,0,0,0-.8-.4l-.8.2-.8.4-1,.4-1.4.2a3.5,3.5,0,0,1-2.5-.9,4.4,4.4,0,0,1-1.2-2.8h9.5l.3-.3a1.4,1.4,0,0,0,.2-.5,6.5,6.5,0,0,0,0-.9,8.2,8.2,0,0,0-.5-3A6.4,6.4,0,0,0,187.1,15.3Zm-8,4.3a3.9,3.9,0,0,1,1-2.2,2.8,2.8,0,0,1,2.1-.8l1.3.3a2.4,2.4,0,0,1,.8.7,2.6,2.6,0,0,1,.5.9,4.1,4.1,0,0,1,.1,1.1Zm85.2,1.9,5.2-7.2h-1.6l-.2.2-4.1,5.8-.3.5L259,14.6l-.2-.2h-1.7l5.2,7.3-5.4,7.6h1.6l.2-.2,4.3-6.1.2-.5,4.5,6.6.2.2h1.7Z"/></symbol></svg>
+<header>
+  <div class="topline"><div class="container">
+    <span id="today">Villahermosa, Tabasco</span>
+    <nav class="top-links" aria-label="Enlaces rápidos">
+      <a href="/contacto">Contáctanos</a>
+      <span class="socials" aria-label="Redes sociales"><a href="#" aria-label="Facebook">FB</a><a href="#" aria-label="X / Twitter">X</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="YouTube">YT</a></span>
+      <a class="print-link" href="edicion.html">Edición impresa</a>
+    </nav>
+  </div></div>
+
+  <div class="masthead"><div class="container masthead-row">
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">☰</button>
+    <div class="weather"><b>Villahermosa</b><span>Clima local · conectar API</span></div>
+    <a class="brand" href="index.html" aria-label="Diario Presente, inicio"><svg class="logo" viewBox="0 0 274.8 38" role="img" aria-label="diariopresente.mx"><use href="#logo-dp"/></svg></a>
+    <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
+  </div></div>
+
+  <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
+  <nav class="nav" aria-label="Secciones principales">
+    <div class="container nav-row" id="navMenu">
+      <a href="index.html">Inicio</a>
+      <a href="seccion.html">Tabasco</a>
+      <a href="/villahermosa">Villahermosa</a>
+      <a href="/sucesos">Sucesos</a>
+      <a href="/mexico">México</a>
+      <a href="/politica">Política</a>
+      <div class="dropdown">
+        <a href="/deportes" aria-haspopup="true">Deportes ▾</a>
+        <div class="dropdown-content"><a href="/deportes/tabasco/">Tabasco</a><a href="/deportes/mundo/">Mundo</a></div>
+      </div>
+      <a href="/espectaculos">Espectáculos</a>
+      <a class="active" href="opinion.html">Opinión</a>
+      <div class="dropdown">
+        <a href="#" aria-haspopup="true">Más ▾</a>
+        <div class="dropdown-content"><a href="/mundo">Mundo</a><a href="/actualidad">Actualidad</a><a href="/cultura">Cultura</a><a href="/sociales">Sociales</a><a href="index.html#multimedia">Multimedia</a></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="breaking" role="region" aria-label="Última hora"><div class="container breaking-row"><span class="breaking-label">Última hora</span><div class="ticker"><div class="ticker-track" id="tickerTrack"></div></div></div></div>
+</header>
+
+<main id="contenido"><div class="container">
+
+  <!-- ANUNCIO 1 · Leaderboard superior (slot GAM top_large_leaderboard) -->
+  <aside class="ad-gob" aria-label="Publicidad 1" style="margin-bottom:0">
+    <span class="ad-label">Gobierno de Tabasco</span>
+    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
+    <p>Slot GAM: <code>top_large_leaderboard</code></p>
+  </aside>
+
+  <nav class="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Opinión</span></nav>
+
+  <header class="sec-head">
+    <h1>Opinión</h1>
+    <p>Las columnas de Diario Presente: análisis político, económico y social de Tabasco y México.</p>
+  </header>
+
+  <div class="section-head" style="margin-top:0"><h2>Columnas de hoy</h2><span id="todayDate" style="font-size:.8rem;font-weight:800;color:var(--muted);margin-bottom:10px"></span></div>
+  <section class="today" id="todayCols" aria-label="Columnas de hoy"></section>
+
+  <div class="section-head"><h2>Columnistas</h2></div>
+  <section class="authors" id="authors" aria-label="Columnistas"></section>
+
+  <div class="section-head"><h2>Más columnas</h2></div>
+  <div class="sec-layout">
+    <div>
+      <div class="list" id="list" aria-live="polite"></div>
+      <div class="more" id="more"><button class="btn" type="button" id="moreBtn">Más columnas</button><small id="moreInfo" role="status"></small></div>
+      <p class="disclaimer">Las opiniones aquí expresadas son responsabilidad exclusiva de sus autores, y por ello no corresponden necesariamente con las de esta casa editorial ni de su sitio web.</p>
+    </div>
+
+    <aside class="sidebar" aria-label="Barra lateral"><div class="sticky">
+      <!-- ANUNCIO 4 · Medium rectangle 300x250 -->
+      <aside class="ad-gob rect" aria-label="Publicidad 4">
+        <span class="ad-label">Turismo Tabasco</span>
+        <strong>Medium Rectangle (300 × 250)</strong>
+        <p>Secretaría de Turismo · Ruta del Cacao</p>
+      </aside>
+      <section class="panel newsletter"><h3>Opinión en tu correo</h3><p>Recibe las columnas del día cada mañana.</p>
+        <form><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="nombre@correo.com" required><button class="btn" type="submit">Suscribirme</button></form>
+      </section>
+      <!-- ANUNCIO 5 · Skyscraper 300x600 -->
+      <aside class="ad-gob vertical" aria-label="Publicidad 5">
+        <span class="ad-label">Campaña Oficial</span>
+        <strong>Banner Vertical (300 × 600)</strong>
+        <p>Informe de Resultados y Rendición de Cuentas 2026</p>
+      </aside>
+    </div></aside>
+  </div>
+</div></main>
+
+<footer><div class="container">
+  <div class="footer-grid">
+    <div><div class="footer-brand"><svg class="logo" viewBox="0 0 274.8 38" role="img" aria-label="diariopresente.mx"><use href="#logo-dp"/></svg></div><p>En Tabasco, Diario del Sureste de México. Periodismo local, útil y cercano.</p><p><a href="#">Acerca de Grupo Presente Multimedios</a></p></div>
+    <div><h3>Secciones</h3><ul><li><a href="seccion.html">Tabasco</a></li><li><a href="/villahermosa">Villahermosa</a></li><li><a href="/sucesos">Sucesos</a></li><li><a href="/mexico">México</a></li><li><a href="/politica">Política</a></li><li><a href="/mundo">Mundo</a></li></ul></div>
+    <div><h3>Más</h3><ul><li><a href="/deportes">Deportes</a></li><li><a href="/espectaculos">Espectáculos</a></li><li><a href="/actualidad">Actualidad</a></li><li><a href="/cultura">Cultura</a></li><li><a href="/sociales">Sociales</a></li><li><a href="opinion.html">Opinión</a></li></ul></div>
+    <div><h3>Contacto</h3><address>Av. Pagés Llergo No. 116,<br>Nueva Villahermosa, Tabasco<br>Tel. (01 993) 312-17-55<br><a href="/contacto">Escríbenos</a></address></div>
+  </div>
+  <div class="legal"><span>© 2026 Diario Presente. Todos los derechos reservados.</span><span><a href="#">Términos legales y aviso de privacidad</a></span></div>
+</div></footer>
+
+<dialog id="searchDialog"><div class="search-box"><button class="close" id="closeSearch" aria-label="Cerrar">×</button><h2>Buscar noticias</h2><form class="search-line"><label class="sr-only" for="query">Buscar</label><input id="query" type="search" placeholder="Escribe una palabra o tema…" autofocus><button class="btn">Buscar</button></form></div></dialog>
+<script>
+/* Columnas reales de diariopresente.mx/opinion (20-oct-2026). Cada una: [ruta, columna, titular, autor, fecha] */
+const TODAY=[
+  ['escala-critica/470258','Escala Crítica','Presupuesto federal y deuda contratada: ¿a inversión, o a gasto corriente?, interrogantes','Víctor M. Sámano Labastida','19/10/2026'],
+  ['como-la-ven/470257','¿Cómo la ven?','Derecho al voto','Cecilia Lavalle Torres','19/10/2026'],
+  ['aguila-o-sol/470256','Águila o Sol','Respuesta oportuna por lluvias','Kristian Antonio Cerino','19/10/2026'],
+  ['otras-formas-de-talar/470255','Otras formas de talar','La deforestación','Jorge Quiroz Casanova y Jorge Quiroz Valiente','19/10/2026'],
+  ['altar-mayor/470254','Altar Mayor','Desengaños','Vicente Peña','19/10/2026'],
+  ['cartas-del-tropico/470253','Cartas del trópico','Ahora los algoritmos votan','Juan de la Cruz','19/10/2026']
+];
+/* En algunas columnas el CMS invierte título y columna (p. ej. "Dependencia crítica del gas natural…" / "Estados Unidos y México"); aquí se normalizan: el tema pasa a ser el rótulo. */
+const MORE=[
+  ['cartas-del-tropico/470137','Cartas del trópico','Ecos de la democracia: el pueblo es el límite','Juan de la Cruz','17/10/2026'],
+  ['la-mananera/470136','La mañanera','Evalúan mejorar propuesta salarial a trabajadores del IMSS','SIT / Redacción','17/10/2026'],
+  ['capicua/470135','Capicúa','Del dicho al hecho','Carlos Sáyago Reyes','17/10/2026'],
+  ['dependencia-critica-del-gas-natural-estadounidense-ii/470134','Estados Unidos y México','Dependencia crítica del gas natural estadounidense (II)','Ramses Pech','17/10/2026'],
+  ['-censura-de-libros-en-eu-parte-i-/470133','Libros','Censura de libros en EU. Parte I','Lucía Melgar Palacios / CIMAC','17/10/2026'],
+  ['escala-critica/470132','Escala Crítica','Niveles de gobierno: sobre problemas sociales, caciques, afectaciones y tradiciones','Víctor M. Sámano Labastida','17/10/2026'],
+  ['agenda/470131','Agenda','´Limpia´ en las plataformas digitales, están advertidas','Patricia González','17/10/2026'],
+  ['en-defensa-del-agua/470027','En defensa del agua','Agua Limpia','Cirenia Celestino Ortega','16/10/2026'],
+  ['eden-politico/470026','Edén Político','Damián Pizá Beltrán, un tabasqueño extraordinario','Pedro Lara Hernández','16/10/2026'],
+  ['la-mananera/470025','La mañanera','Sólida, la economía mexicana','SIT / Redacción','16/10/2026'],
+  ['aguas-con-el-agua/470024','¡Aguas con el agua!','Agua Potable','Mario Cerino Madrigal','16/10/2026'],
+  ['altar-mayor/470023','Altar Mayor','Sinergia empresarial','Vicente Peña','16/10/2026'],
+  ['dependencia-critica-del-gas-natural-estadounidense-i/470022','Estados Unidos y México','Dependencia crítica del gas natural estadounidense (I)','Ramses Pech','16/10/2026'],
+  ['aguila-o-sol/470021','Águila o Sol','Enésimo rechazo para Bertruy','Kristian Antonio Cerino','16/10/2026'],
+  ['elecciones-en-brasil-lula-encrucijada-y-resistencia-sur/470020','Brasil','Elecciones en Brasil: Lula, encrucijada y resistencia Sur','Erasmo Marín Villegas','16/10/2026'],
+  ['la-mananera/469933','La mañanera','Plataformas deben eliminar contenidos de violencia','SIT / Redacción','15/10/2026']
+];
+
+const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
+/* Solo Escala Crítica 470258 tiene página de columna en este draft */
+const href=r=>r==='escala-critica/470258'?'columna.html':'/opinion/'+r;
+/* Iniciales: nombre + primer apellido. Los nombres compuestos o con segundo nombre se fijan a mano; el resto usa las dos primeras palabras. */
+const INI={'Víctor M. Sámano Labastida':'VS','Kristian Antonio Cerino':'KC','Jorge Quiroz Casanova y Jorge Quiroz Valiente':'JQ','Juan de la Cruz':'JC','SIT / Redacción':'SR','Lucía Melgar Palacios / CIMAC':'LM'};
+const ini=n=>INI[n]||n.split(/\s+/).filter(w=>!/^(de|la|del|los|las)$/i.test(w)).slice(0,2).map(w=>w[0].toUpperCase()).join('');
+const dLabel=f=>{const [d,m,y]=f.split('/').map(Number);const s=new Intl.DateTimeFormat('es-MX',{weekday:'long',day:'numeric',month:'long'}).format(new Date(y,m-1,d));return s.charAt(0).toUpperCase()+s.slice(1)};
+const short=f=>{const [d,m,y]=f.split('/').map(Number);return new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'short'}).format(new Date(y,m-1,d)).replace('.','')};
+const iso=f=>{const [d,m,y]=f.split('/');return `${y}-${m}-${d}`};
+
+document.getElementById('todayDate').textContent=dLabel(TODAY[0][4]);
+document.getElementById('todayCols').innerHTML=TODAY.map((c,i)=>`
+  <article class="col-feature${i===0?' big':''}"><span class="kicker">${esc(c[1])}</span>
+    <h3><a class="stretch" href="${href(c[0])}">${esc(c[2])}</a></h3>
+    <div class="who"><span class="avatar" aria-hidden="true">${ini(c[3])}</span><span><b>${esc(c[3])}</b><time datetime="${iso(c[4])}">${short(c[4])}</time></span></div></article>`).join('');
+
+/* Columnistas: un acceso por autor de hoy, con su columna */
+document.getElementById('authors').innerHTML=TODAY.map(c=>`
+  <a class="author" href="${href(c[0])}"><span class="avatar" aria-hidden="true">${ini(c[3])}</span><span><b>${esc(c[3])}</b><span>${esc(c[1])}</span></span></a>`).join('');
+
+/* Más columnas: 8 por vez, separadores por día, un anuncio in-feed */
+const STEP=8;let shown=0,lastDay='';
+const list=document.getElementById('list'),more=document.getElementById('more'),info=document.getElementById('moreInfo');
+const AD2=`<aside class="ad-gob" aria-label="Publicidad 2"><span class="ad-label">Gobierno de Tabasco</span><strong>Programas de Bienestar y Desarrollo Social 2026</strong><p>Slot GAM: <code>top_leaderboard</code> (728 × 90)</p></aside>`;
+function render(){
+  let html='';
+  MORE.slice(shown,shown+STEP).forEach((c,k)=>{
+    const day=dLabel(c[4]);if(day!==lastDay){html+=`<h2 class="day">${day}</h2>`;lastDay=day}
+    html+=`<article class="row"><span class="avatar" aria-hidden="true">${ini(c[3])}</span><div>
+      <span class="kicker">${esc(c[1])}</span><h3><a href="${href(c[0])}">${esc(c[2])}</a></h3>
+      <div class="by"><b>${esc(c[3])}</b> · <time datetime="${iso(c[4])}">${short(c[4])}</time></div></div></article>`;
+    if(shown+k===4)html+=AD2;
+  });
+  list.insertAdjacentHTML('beforeend',html);
+  shown=Math.min(MORE.length,shown+STEP);
+  info.textContent=shown<MORE.length?`Mostrando ${shown} de ${MORE.length} columnas`:'No hay más columnas por mostrar.';
+  more.classList.toggle('done',shown>=MORE.length);
+}
+document.getElementById('moreBtn').addEventListener('click',render);render();
+
+const TICK=[
+  ['Gobierno del Pueblo de Tabasco cumple compromiso con la rehabilitación integral del Parque Museo La Venta','nota.html'],
+  ['Nuevas condiciones para visas H-1B en Estados Unidos','/mundo/medidas-migratorias-de-trump-revocacion-de-visas/470436'],
+  ['Selena Gomez comparte su experiencia dejando el vapeo','/espectaculos/selena-gomez-deja-el-vapeo-y-habla-sobre-su-voz/470435'],
+  ['Incendio en plataforma Abkatún-H: Pemex despliega protocolos de seguridad','/sucesos/incendio-en-plataforma-abkatun-h-pemex-activa-protocolos/470340']
+];
+const tk=TICK.map(a=>`<a href="${a[1]}">${esc(a[0])}</a>`).join('');
+document.getElementById('tickerTrack').innerHTML=tk+tk;
+</script>
+<script src="assets/site.js"></script>
+</body>
+</html>
