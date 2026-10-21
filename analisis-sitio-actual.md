@@ -148,7 +148,7 @@ Datos reales de `diariopresente.mx/opinion` y de la columna "Escala Crítica" (i
 
 - **Datos invertidos en el CMS:** en varias columnas el título y el nombre de la columna vienen intercambiados (por ejemplo, "Dependencia crítica del gas natural estadounidense (II)" / "Estados Unidos y México"). El draft las normaliza; conviene corregirlo en el CMS.
 - **Autor sin ficha:** no hay foto ni biografía en el sitio actual. La ficha lleva solo nombre y columna.
-- **Correo del autor:** el texto original incluye `vmsamano@hotmail.com`. Se conservó como firma, pero conviene confirmar con el autor si desea que se publique.
+- **Correo del autor:** el texto original incluye el correo del autor. Se conservó como firma, pero conviene confirmar con el autor si desea que se publique.
 - **Autor sin enlace único:** hoy no existe una página por autor; "Todas sus columnas" apunta al listado general.
 - **Solo Escala Crítica** tiene página en este draft. Las demás columnas enlazan a su URL real.
 
