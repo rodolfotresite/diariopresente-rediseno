@@ -2,20 +2,14 @@
 <html lang="es-MX" data-theme="light">
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#184F76">
   <title>Tabasco | Diario Presente</title>
   <meta name="description" content="Las últimas noticias de Tabasco: gobierno, municipios, seguridad, salud, educación y cultura. Diario Presente, Diario del Sureste de México.">
   <link rel="canonical" href="https://diariopresente.mx/tabasco">
   <link rel="stylesheet" href="assets/site.css">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"CollectionPage","name":"Tabasco","url":"https://diariopresente.mx/tabasco",
-   "isPartOf":{"@type":"WebSite","name":"Diario Presente","url":"https://diariopresente.mx/"},
-   "breadcrumb":{"@type":"BreadcrumbList","itemListElement":[
-     {"@type":"ListItem","position":1,"name":"Inicio","item":"https://diariopresente.mx/"},
-     {"@type":"ListItem","position":2,"name":"Tabasco","item":"https://diariopresente.mx/tabasco"}]}}
-  </script>
-  <style>
+    <style>
 
     .sec-head{display:flex;align-items:end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin:12px 0 22px;padding-bottom:14px;border-bottom:4px solid var(--brand)}
     .sec-head h1{font-family:Georgia,serif;font-size:clamp(2.2rem,5vw,3.6rem);line-height:1;letter-spacing:-.04em;margin:0;color:var(--navy)}
@@ -49,6 +43,7 @@
     .item p{margin:0 0 10px;color:var(--muted);font-size:.95rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
     .list .ad-gob{margin:22px 0}
 
+    .empty{padding:28px;border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted);text-align:center}
     .more{display:grid;justify-items:center;gap:10px;margin:30px 0 6px}
     .more .btn{min-width:240px;padding:14px 22px}
     .more small{color:var(--muted);font-size:.82rem}
@@ -95,19 +90,19 @@
     <div class="container nav-row" id="navMenu">
       <a href="index.html">Inicio</a>
       <a class="active" href="seccion.html">Tabasco</a>
-      <a href="/villahermosa">Villahermosa</a>
-      <a href="/sucesos">Sucesos</a>
-      <a href="/mexico">México</a>
-      <a href="/politica">Política</a>
+      <a href="seccion.html?s=villahermosa">Villahermosa</a>
+      <a href="seccion.html?s=sucesos">Sucesos</a>
+      <a href="seccion.html?s=mexico">México</a>
+      <a href="seccion.html?s=politica">Política</a>
       <div class="dropdown">
-        <a href="/deportes" aria-haspopup="true">Deportes ▾</a>
-        <div class="dropdown-content"><a href="/deportes/tabasco/">Tabasco</a><a href="/deportes/mundo/">Mundo</a></div>
+        <a href="seccion.html?s=deportes" aria-haspopup="true">Deportes ▾</a>
+        <div class="dropdown-content"><a href="seccion.html?s=deportes-tabasco">Tabasco</a><a href="seccion.html?s=deportes-mundo">Mundo</a></div>
       </div>
-      <a href="/espectaculos">Espectáculos</a>
+      <a href="seccion.html?s=espectaculos">Espectáculos</a>
       <a href="opinion.html">Opinión</a>
       <div class="dropdown">
         <a href="#" aria-haspopup="true">Más ▾</a>
-        <div class="dropdown-content"><a href="/mundo">Mundo</a><a href="/actualidad">Actualidad</a><a href="/cultura">Cultura</a><a href="/sociales">Sociales</a><a href="index.html#multimedia">Multimedia</a></div>
+        <div class="dropdown-content"><a href="seccion.html?s=mundo">Mundo</a><a href="seccion.html?s=actualidad">Actualidad</a><a href="seccion.html?s=cultura">Cultura</a><a href="seccion.html?s=sociales">Sociales</a><a href="index.html#multimedia">Multimedia</a></div>
       </div>
     </div>
   </nav>
@@ -124,20 +119,19 @@
     <p>Slot GAM: <code>top_large_leaderboard</code></p>
   </aside>
 
-  <nav class="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tabasco</span></nav>
+  <nav class="crumbs" id="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tabasco</span></nav>
 
   <header class="sec-head">
     <div>
-      <h1>Tabasco</h1>
-      <p>Gobierno, municipios, seguridad, salud, educación y cultura: las noticias del estado, de la más reciente a la más antigua.</p>
+      <h1 id="secTitle">Tabasco</h1>
+      <p id="secDesc">Gobierno, municipios, seguridad, salud, educación y cultura: las noticias del estado, de la más reciente a la más antigua.</p>
     </div>
-    <!-- Hoy Tabasco no tiene subsecciones; el contenedor queda listo para cuando existan (como Deportes → Tabasco / Mundo) -->
-    <nav class="sec-tools" aria-label="Más secciones"><a class="on" href="seccion.html" aria-current="page">Todas</a><a href="/villahermosa">Villahermosa</a><a href="/politica">Política</a><a href="/sucesos">Sucesos</a></nav>
+    <nav class="sec-tools" id="secTools" aria-label="Secciones relacionadas"></nav>
   </header>
 
   <section class="featured" aria-label="Destacadas de Tabasco" id="featured"></section>
 
-  <div class="section-head"><h2>Más noticias de Tabasco</h2><a href="#" id="countTop"></a></div>
+  <div class="section-head"><h2 id="secMore">Más noticias de Tabasco</h2><a href="#" id="countTop"></a></div>
   <div class="sec-layout">
     <div class="list" id="list" aria-live="polite"></div>
 
@@ -148,7 +142,7 @@
         <strong>Medium Rectangle (300 × 250)</strong>
         <p>Secretaría de Turismo · Ruta del Cacao</p>
       </aside>
-      <section class="panel"><h3>Más leído</h3><ol class="ranking" id="ranking"></ol></section>
+      <section class="panel"><h3>Más leído</h3><small class="demo-note">Ejemplo de diseño: faltan las lecturas reales.</small><ol class="ranking" id="ranking"></ol></section>
       <section class="panel newsletter"><h3>Noticias en tu correo</h3><p>Recibe el resumen diario con las historias más importantes de Tabasco.</p>
         <form><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="nombre@correo.com" required><button class="btn" type="submit">Suscribirme</button></form>
       </section>
@@ -170,120 +164,105 @@
 <footer><div class="container">
   <div class="footer-grid">
     <div><div class="footer-brand"><svg class="logo" viewBox="0 0 274.8 38" role="img" aria-label="diariopresente.mx"><use href="#logo-dp"/></svg></div><p>En Tabasco, Diario del Sureste de México. Periodismo local, útil y cercano.</p><p><a href="#">Acerca de Grupo Presente Multimedios</a></p></div>
-    <div><h3>Secciones</h3><ul><li><a href="seccion.html">Tabasco</a></li><li><a href="/villahermosa">Villahermosa</a></li><li><a href="/sucesos">Sucesos</a></li><li><a href="/mexico">México</a></li><li><a href="/politica">Política</a></li><li><a href="/mundo">Mundo</a></li></ul></div>
-    <div><h3>Más</h3><ul><li><a href="/deportes">Deportes</a></li><li><a href="/espectaculos">Espectáculos</a></li><li><a href="/actualidad">Actualidad</a></li><li><a href="/cultura">Cultura</a></li><li><a href="/sociales">Sociales</a></li><li><a href="opinion.html">Opinión</a></li></ul></div>
+    <div><h3>Secciones</h3><ul><li><a href="seccion.html">Tabasco</a></li><li><a href="seccion.html?s=villahermosa">Villahermosa</a></li><li><a href="seccion.html?s=sucesos">Sucesos</a></li><li><a href="seccion.html?s=mexico">México</a></li><li><a href="seccion.html?s=politica">Política</a></li><li><a href="seccion.html?s=mundo">Mundo</a></li></ul></div>
+    <div><h3>Más</h3><ul><li><a href="seccion.html?s=deportes">Deportes</a></li><li><a href="seccion.html?s=espectaculos">Espectáculos</a></li><li><a href="seccion.html?s=actualidad">Actualidad</a></li><li><a href="seccion.html?s=cultura">Cultura</a></li><li><a href="seccion.html?s=sociales">Sociales</a></li><li><a href="opinion.html">Opinión</a></li></ul></div>
     <div><h3>Contacto</h3><address>Av. Pagés Llergo No. 116,<br>Nueva Villahermosa, Tabasco<br>Tel. (01 993) 312-17-55<br><a href="/contacto">Escríbenos</a></address></div>
   </div>
   <div class="legal"><span>© 2026 Diario Presente. Todos los derechos reservados.</span><span><a href="#">Términos legales y aviso de privacidad</a></span></div>
 </div></footer>
 
 <dialog id="searchDialog"><div class="search-box"><button class="close" id="closeSearch" aria-label="Cerrar">×</button><h2>Buscar noticias</h2><form class="search-line"><label class="sr-only" for="query">Buscar</label><input id="query" type="search" placeholder="Escribe una palabra o tema…" autofocus><button class="btn">Buscar</button></form></div></dialog>
+<script src="data/secciones.js"></script>
 <script>
-const B='https://diariopresenterm.blob.core.windows.net/images/';
-/* Destacadas: [ruta, titular, resumen, hora y fecha, imagen] */
-const FEAT=[
-  ['NOTA','Gobierno del Pueblo de Tabasco cumple compromiso con la rehabilitación integral del Parque Museo La Venta','El Parque Museo La Venta se prepara para recibir a familias y visitantes tras una rehabilitación que garantiza el bienestar de la fauna y preserva su identidad.','04:30 p.m. 20/10/2026','2026/10/20/crop-w1280-h640-rehabilitacion-24-973c84a1-focus-0-0-570-356.webp'],
-  ['educacion-de-calidad-secundaria-tecnica-9-renovada-por-gobierno/470433','Gobierno del Pueblo transforma la Secundaria Técnica 9 con espacios dignos y seguros','','04:20 p.m. 20/10/2026','2026/10/20/crop-w1600-h800-inauguracion-obra-tecnica--9-01-a1a2a53e-focus-0-0-570-356.webp'],
-  ['la-erosion-costera-en-nivel-critico-may/470377','La erosión costera en nivel crítico: May','','08:00 a.m. 20/10/2026','2026/10/20/crop-w1600-h800-pre01porta1-a6072b1f-focus-0-0-570-356.webp'],
-  ['inversiones-y-empleo-gobierno-y-empresarios-en-tabasco/470358','Alianza entre Gobierno y Empresarios para Impulsar Desarrollo en Tabasco','','07:55 p.m. 19/10/2026','2026/10/20/crop-w4043-h2022-img-20261019-wa0122-b352bc65-focus-0-0-570-356.webp']
-];
-/* Listado: [ruta, titular, resumen, hora y fecha, imagen] — de la más reciente a la más antigua */
-const NEWS=[
-  ['apoyo-gubernamental-a-comunidades-de-paraiso-por-frente-frio/470357','Gobernador Javier May informa sobre reubicación de familias en Paraíso por erosión marina','Javier May brinda apoyo a familias de Paraíso afectadas por frente frío, asegurando protección y reubicación segura.','07:30 p.m. 19/10/2026','2026/10/20/crop-w4160-h2080-paraiso-7-affec4e8-focus-0-0-360-247.webp'],
-  ['acciones-de-firt-olmeca-en-tabasco-detencion-de-personas/470349','FIRT Olmeca asegura más de 100 mil litros de hidrocarburo y narcóticos en Tabasco','Fuerzas de seguridad de Tabasco trabajan en conjunto para combatir la delincuencia con la FIRT Olmeca','06:05 p.m. 19/10/2026','2026/10/19/crop-w1578-h789-whatsapp-image-2026-10-19-at-55007-pm-1-e64fb5b0-focus-0-0-360-247.webp'],
-  ['ieat-tabasco-brinda-oportunidades-de-educacion-en-multe/470345','IEAT Tabasco brinda oportunidades educativas en Multé','En Multé, Javier May impulsa la educación con la participación de los hermanos Magaña Cruz en el IEAT Tabasco.','04:45 p.m. 19/10/2026','2026/10/19/crop-w1600-h800-whatsapp-image-2026-10-19-at-43648-pm-b01454ef-focus-0-0-360-247.webp'],
-  ['despliegan-el-plan-dn-iii-e-en-costas/470287','Despliegan el Plan DN-III-E en costas','Agentes desalojan a una familia que se encontraba en riesgo cerca de un afluente','08:00 a.m. 19/10/2026','2026/10/19/crop-w1600-h800-pre02foto3-c26c419d-focus-0-0-360-247.webp'],
-  ['beneficios-de-la-construccion-del-puente-en-vernet-macuspana/470231','Beneficios del Nuevo Puente en Vernet Macuspana: Un Paso Hacia el Futuro','El nuevo puente en Vernet Macuspana mejora la calidad de vida de sus habitantes','04:05 p.m. 18/10/2026','2026/10/18/crop-w1581-h791-img3692-7fabeb6e-focus-0-0-360-247.webp'],
-  ['inclusion-artistica-en-tabasco-teatro-inclusivo/470230','Arte accesible para todos en Tabasco: Teatro Inclusivo','Iniciativa cultural en Tabasco promueve la diversidad y la inclusión','03:55 p.m. 18/10/2026','2026/10/18/crop-w1244-h622-2a1090fb-ae34-4c3a-b306-e0dbef6c453c-6b8aa76f-focus-0-0-360-247.webp'],
-  ['gabino-torres-primer-lugar-en-arte-popular/470144','Artesano tabasqueño Gabino Torres triunfa en concurso nacional de arte','El artesano Gabino Torres Arias destaca en el Gran Premio Nacional de Arte Popular 2026 al representar a Tabasco con su obra en fibras vegetales','08:15 a.m. 17/10/2026','2026/10/17/crop-w1064-h532-pre10gabi01-e0b22774-focus-min0.52-0.77-360-247.webp'],
-  ['acciones-coordinadas-de-seguridad-en-tabasco/470113','Acciones coordinadas de seguridad en Tabasco','Resultados del Gabinete de Seguridad de Tabasco tras decomiso de narcóticos y detenciones por la FIRT Olmeca, en acciones para combatir la delincuencia.','04:40 p.m. 16/10/2026','2026/10/16/crop-w1600-h800-whatsapp-image-2026-10-16-at-43841-pm-61eade92-focus-0-0-360-247.webp'],
-  ['invierten-484-mdp-en-obras/470038','Invierten 48.4 mdp en obras en Comalcalco','Javier May supervisa proyectos camineros, hidráulicos, educativos y comunitarios','08:00 a.m. 16/10/2026','2026/10/16/crop-w1280-h640-pre03may1-f76316a5-focus-0-0-360-247.webp'],
-  ['sube-100-robos-en-estructura-publica/469949','Sube 100% robos en estructura pública','El ilícito se comete sin violencia, ya que suelen aprovechar horarios nocturnos','08:00 a.m. 15/10/2026','2026/10/15/crop-w1208-h604-pre03foto1-12fbe526-focus-0-0-360-247.webp'],
-  ['gobierno-del-estado-llama-al-dialogo-tras-bloqueos-en-villahermosa/469922','Manifestaciones laborales en Villahermosa: postura del Gobierno del Estado','Ante los bloqueos en Villahermosa, el Gobierno del Estado enfatiza la necesidad de diálogo y respeto, abordando las manifestaciones laborales y la libertad de manifestación.','10:20 p.m. 14/10/2026','2026/10/15/crop-w1600-h800-whatsapp-image-2026-10-14-at-101324-pm-86d044e3-focus-0-0-360-247.webp'],
-  ['salud-en-comalcalco-cirugia-de-protesis-2026/469919','Inaugurada Jornada de Cirugía de Prótesis en Comalcalco','Instituciones como el IMSS-Bienestar y la Beneficencia Pública del Estado de Tabasco se unen para mejorar la movilidad motriz de los pacientes en Comalcalco.','07:30 p.m. 14/10/2026','2026/10/15/crop-w1280-h640-whatsapp-image-2026-10-14-at-73230-pm-2-056885cd-focus-0-0-360-247.webp'],
-  ['detencion-de-mujer-generadora-de-violencia-en-tabasco/469894','Detenida en Campeche mujer generadora de violencia en Tabasco','Autoridades federales y estatales logran detener a Noemí, vinculada con delitos de narcotráfico, homicidio y extorsión en Tabasco','01:00 p.m. 14/10/2026','2026/10/14/crop-w1026-h513-whatsapp-image-2026-10-14-at-121821-pm-19f14297-focus-0-0-360-247.webp'],
-  ['se-redujo-13-el-desempleo-stps/469851','Se redujo 1.3% el Desempleo: STPS','Tabasco todavía se ubica por arriba del porcentaje de desempleo nacional','08:00 a.m. 14/10/2026','2026/10/14/crop-w1024-h512-pre03foto1-beeabfee-focus-0-0-360-247.webp'],
-  ['resolucion-condenatoria-por-secuestro-agravado-en-tabasco/469821','Poder Judicial de Tabasco dicta histórica condena por secuestro','El Nuevo Poder Judicial de Tabasco demuestra su firmeza en la justicia al condenar a 50 años de prisión a responsables de secuestro.','06:40 p.m. 13/10/2026','2026/10/14/crop-w1280-h640-whatsapp-image-2026-10-13-at-63041-pm-8ce9c3fb-focus-0-0-360-247.webp'],
-  ['transforma-alcaldesa-mari-luz-velazquez-jimenez-el-centro-de-huimanguillo-con-la-rehabilitacion-de-la-calle-simon-sarlat-/469819','Transforma alcaldesa Mari Luz Velázquez Jiménez el centro de Huimanguillo con la rehabilitación de la calle Simón Sarlat','Con una inversión de 11 millones 67 mil pesos, los trabajos incluyeron pavimentación con concreto hidráulico, construcción de guarniciones y banquetas, así como la renovación de las redes de agua entubada, drenaje sanitario y pluvial','06:20 p.m. 13/10/2026','2026/10/14/whatsapp-image-2026-10-13-at-91606-am-1-ffafc83c-focus-0-0-360-247.webp'],
-  ['movimiento-ciudadano-pedro-palomeque-rechaza/469817','Polémica en MC por designación de coordinadores: Pedro Palomeque disconforme','Pedro Palomeque cuestiona la falta de perfiles idóneos en las designaciones de coordinadores municipales de MC, proponiendo un consenso para mejorar la selección de aspirantes.','05:15 p.m. 13/10/2026','2026/10/13/crop-w676-h338-image-2026-10-13t171328888-2a40f584-focus-0-0-360-247.webp'],
-  ['van-3-500-embarazos-de-adolescentes-salud/469770','Van 3, 500 embarazos de adolescentes: salud','De esas cifras, al menos 100 casos corresponden a menores de 15 años','08:00 a.m. 13/10/2026','2026/10/13/crop-w1599-h800-pre03foto1-8b89af4b-focus-0-0-360-247.webp'],
-  ['escuela-en-riesgo-padres-alertan-sobre-condiciones-peligrosas/469742','Clases suspendidas: Escuela en Parrilla II en riesgo','Padres de familia de la escuela en Parrilla II demandan una evaluación estructural y medidas preventivas ante los riesgos que representan las grietas y el socavón cerca del plantel.','09:10 p.m. 12/10/2026','2026/10/13/crop-w715-h357-whatsapp-image-2026-10-12-at-90129-pm-61856c0d-focus-0-0-360-247.webp'],
-  ['informe-resultados-osfe-revision-de-cuentas-publicas-en-tabasco/469632','Informe de resultados OSFE: Revisión exhaustiva de cuentas públicas en Tabasco','El OSFE concluye la revisión de cuentas públicas en Tabasco, destacando la importancia de la fiscalización para la transparencia estatal.','06:40 p.m. 11/10/2026','2026/10/12/crop-w940-h470-1d7009b1-fb08-41c6-80b4-5cc6a7ec10ca-629ed659-focus-0-0-360-247.webp'],
-  ['avances-en-rescate-del-cacao-precio-justo-garantizado/469620','Avances en instalación de módulos para cacao tabasqueño','En el marco de Sembrando Vida Tabasco, el Gobierno estatal avanza en la instalación de módulos para elevar la calidad y precio del cacao tabasqueño.','03:00 p.m. 11/10/2026','2026/10/11/crop-w1280-h640-supervision-cac-nuevo-amanecer-cardenas-01-9a48a7b4-focus-0-0-360-247.webp'],
-  ['premio-por-atencion-especializada-en-imss-bienestar/469537','Federación Mundial de Hemofilia reconoce labor en Tabasco','IMSS Bienestar en Tabasco es premiado por su compromiso con la atención especializada a niños con hemofilia','10:39 a.m. 10/10/2026','2026/10/10/crop-w1274-h637-whatsapp-image-2026-10-10-at-102707-am-1-f6ccee3e-focus-0-0-360-247.webp'],
-  ['elecciones-2027-lorena-mendez-denis-destaca-en-encuesta/469501','Lorena Méndez Denis lidera preferencia ciudadana en Comalcalco','Lorena Méndez Denis, figura clave en preferencias electorales de Comalcalco','08:30 p.m. 09/10/2026','2026/10/10/crop-w1162-h581-whatsapp-image-2026-10-09-at-82233-pm-7b237c9f-focus-0-0-360-247.webp'],
-  ['congreso-de-tabasco-aprueba-por-unanimidad-la-cuenta-publica-2025-de-huimanguillo/469504','Congreso de Tabasco aprueba por unanimidad la Cuenta Pública 2025 de Huimanguillo','La aprobación unánime del Congreso de Tabasco corresponde a la Cuenta Pública 2025 de Huimanguillo, en la administración de Mari Luz Velázquez Jiménez, quien reiteró el compromiso de mantener la transparencia y la correcta aplicación de los recursos públicos.','05:29 p.m. 09/10/2026','2026/10/10/crop-w1024-h512-whatsapp-image-2026-10-09-at-103025-am-b81d635d-focus-0-0-360-247.webp'],
-  ['desarrollo-tabasco-equipamiento-hospital-tercer-nivel-en-cardenas/469470','Gobernador de Tabasco anuncia ampliación de servicios médicos en Cárdenas','El gobernador de Tabasco informa sobre equipamiento de tecnología médica en hospital de tercer nivel del IMSS-Bienestar en Cárdenas.','12:20 p.m. 09/10/2026','2026/10/09/crop-w1280-h640-jornadas-de-atencion-cardenas-01-97f3b37f-focus-0-0-360-247.webp'],
-  ['inicia-formalmente-proceso-electoral-2026-2027-en-tabasco/469411','Arranca el proceso electoral 2026-2027','Culminará con la jornada electoral del próximo 6 de junio; se elegirán diputados locales y regidores','08:00 a.m. 09/10/2026','2026/10/09/crop-w1600-h800-pre03foto1-b08e3f0b-focus-0-0-360-247.webp'],
-  ['reunion-tecnica-para-combatir-el-dengue-en-tabasco-chiapas/469384','Reunión técnica en Tabasco para fortalecer la lucha contra el dengue','Importante reunión técnica para coordinar estrategias contra el dengue en el sureste de México','08:15 p.m. 08/10/2026','2026/10/09/crop-w1134-h567-whatsapp-image-2026-10-08-at-81034-pm-1-1d5353ee-focus-0-0-360-247.webp'],
-  ['huracan-isaias-categoria-1-alerta-lluvias-en-tabasco/469322','Huracán Isaias alcanza categoría 1 y amenaza Tabasco','El Servicio Meteorológico Nacional pronostica lluvias intensas en Tabasco debido a Isaias y Simon','09:00 a.m. 08/10/2026','2026/10/08/crop-w1200-h600-isaias-se-convierte-en-huracan-categoria-1-smnd1bff312-c52e-48c6-b797-3463b2be2106medialjnimgndimagefullsize-c7765425-focus-0-0-360-247.webp'],
-  ['denuncias-y-sanciones-por-incumplimientos-a-ley-del-notariado/469312','Suman 70 quejas contra notarios','Siete notarías vacantes en Tabasco, pero servicio garantizado en los 17 municipios.','08:00 a.m. 08/10/2026','2026/10/08/crop-w1600-h800-pre03foto1-5d53fc7b-focus-0-0-360-247.webp'],
-  ['historia-de-morena-ligada-a-tabasco-y-lopez-obrador/469277','Javier May celebra 15 años de Morena en Tabasco','Javier May se une al evento de aniversario de Morena convocado en la Ciudad de México','05:30 p.m. 07/10/2026','2026/10/07/crop-w1549-h774-whatsapp-image-2026-10-07-at-51713-pm-1-9af646c8-focus-0-0-360-247.webp'],
-  ['apagaran-mecheros-a-principios-del-2027/469220','Apagarán mecheros a principios del 2027','La extracción rebasó la capacidad de la infraestructura instalada, aseguran','10:30 a.m. 07/10/2026','2026/10/07/crop-w1920-h960-foto-rectangulo-1-182b0978-focus-0-0-360-247.webp'],
-  ['prevencion-del-embarazo-adolescente-en-tabasco/469202','Embarazo de menores reto vigente en Tabasco','En 2023 se registraron más de 200 casos en niñas menores de 15 años','08:00 a.m. 07/10/2026','2026/10/07/crop-w932-h466-43219ae24c784959bb43fad7e7d31db3-3f172bce-focus-0-0-360-247.webp'],
-  ['pronostico-lluvias-intensas-en-tabasco-por-ciclon-isaias/469150','SMN vigila formación del ciclón Isaías que amenaza con lluvias intensas en Tabasco','El estado de Tabasco se encuentra en alerta ante la posible formación del ciclón Isaías en el Golfo de México, lo que podría desencadenar lluvias intensas en la región','02:00 p.m. 06/10/2026','2026/10/06/crop-w772-h386-ht9iqmwqaafzn1-dd152ca8-focus-0-0-360-247.webp'],
-  ['piden-a-fget-llegar-al-fondo-de-quiebra/469100','Piden a FGET llegar al fondo de quiebra','La Fiscalía General de Tabasco se adentra en la investigación de la quiebra de la Unión de Crédito Ganadero, solicitando sanciones si corresponde.','08:00 a.m. 06/10/2026','2026/10/06/crop-w2048-h1024-pre02foto1-a9c6822d-focus-0-0-360-247.webp'],
-  ['apoyos-sindicales-y-gubernamentales-para-trabajadores-en-tabasco/469067','Apoyos sindicales y gubernamentales benefician a trabajadores en Tabasco','La entrega de laptops, canastillas de maternidad y paternidad, prótesis, licencias, gastos de titulación y lentes a la base trabajadora en Tabasco busca atender distintas necesidades y mejorar su bienestar y el de sus familias.','05:40 p.m. 05/10/2026','2026/10/05/crop-w4160-h2080-entrega-de-apoyos-sutset-07-be014531-focus-0-0-360-247.webp'],
-  ['detenidos-y-sentencias-por-armas-en-tabasco-informe-seguridad/469064','Gabinete de Seguridad reporta decomiso de droga y armas en Tabasco','Sentencias condenatorias por portación de armas en Tabasco como parte de las acciones de seguridad','04:30 p.m. 05/10/2026','2026/10/05/crop-w1583-h792-whatsapp-image-2026-10-05-at-41855-pm-1-ff5ce80e-focus-0-0-360-247.webp'],
-  ['alcaldesa-centro-encabeza-reforestacion-tabasco-2026/469015','Gobierno de Tabasco impulsa siembra masiva de árboles en 17 municipios','La reforestación en Tabasco promueve la mitigación del cambio climático y la biodiversidad.','11:45 a.m. 05/10/2026','2026/10/05/crop-w1440-h720-pre05foto2-437556fd-focus-0-0-360-247.webp']
-];
-const RANK=[
-  ['Alerta máxima en Tabasco por torrenciales','/villahermosa/riesgo-de-desbordamiento-de-rios-y-deslaves-en-tabasco/470143'],
-  ['Programa de vivienda más grande de Tabasco liderado por Javier May','/villahermosa/infonavit-y-javier-may-40-mil-viviendas-en-centro-tabasco/470171'],
-  ['La erosión costera en nivel crítico: May','/tabasco/la-erosion-costera-en-nivel-critico-may/470377'],
-  ['FIRT Olmeca asegura más de 100 mil litros de hidrocarburo y narcóticos en Tabasco','/tabasco/acciones-de-firt-olmeca-en-tabasco-detencion-de-personas/470349'],
-  ['Huracán Isaias alcanza categoría 1 y amenaza Tabasco','/tabasco/huracan-isaias-categoria-1-alerta-lluvias-en-tabasco/469322']
-];
+/* Una sola plantilla para todas las secciones: seccion.html?s=villahermosa, ?s=deportes-tabasco, etc.
+   Los datos vienen de data/secciones.js (generado con tools/fetch_secciones.py). Sin ?s= se muestra Tabasco. */
 const TICK=[
   ['Gobierno del Pueblo de Tabasco cumple compromiso con la rehabilitación integral del Parque Museo La Venta','nota.html'],
   ['Nuevas condiciones para visas H-1B en Estados Unidos','/mundo/medidas-migratorias-de-trump-revocacion-de-visas/470436'],
   ['Selena Gomez comparte su experiencia dejando el vapeo','/espectaculos/selena-gomez-deja-el-vapeo-y-habla-sobre-su-voz/470435'],
   ['Incendio en plataforma Abkatún-H: Pemex despliega protocolos de seguridad','/sucesos/incendio-en-plataforma-abkatun-h-pemex-activa-protocolos/470340']
 ];
-
+const LIVE='https://diariopresente.mx';
+const DATA=window.SECCIONES||{};
+const QS=new URLSearchParams(location.search).get('s');
+const SLUG=DATA[QS]?QS:'tabasco';
+const S=DATA[SLUG];
+/* Notas que ya tienen página propia en el draft (id de la nota → archivo) */
+const BUILT={'470434':'nota.html'};
+/* Secciones relacionadas que se muestran como accesos rápidos */
+const RELATED={tabasco:['villahermosa','politica','sucesos'],villahermosa:['tabasco','politica','sucesos'],sucesos:['tabasco','villahermosa','politica'],mexico:['politica','mundo','actualidad'],politica:['tabasco','mexico','mundo'],mundo:['mexico','politica','actualidad'],espectaculos:['actualidad','cultura','sociales'],actualidad:['espectaculos','cultura','mexico'],cultura:['espectaculos','sociales','actualidad'],sociales:['espectaculos','cultura','actualidad']};
+const secUrl=s=>s==='tabasco'?'seccion.html':'seccion.html?s='+s;
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
-const href=r=>r==='NOTA'?'nota.html':'/tabasco/'+r;
-const img=p=>`<img src="${B+p}" alt="" loading="lazy" onerror="this.remove()">`;
+const href=h=>BUILT[h.split('/').pop()]||h;
+const img=u=>`<img src="${u}" alt="" loading="lazy" onerror="this.remove()">`;
 const parts=w=>{const m=w.match(/^(\d\d:\d\d [ap]\.m\.) (\d\d)\/(\d\d)\/(\d{4})$/);return {time:m[1],d:+m[2],mo:+m[3],y:+m[4]}};
 const dayLabel=w=>{const p=parts(w);const s=new Intl.DateTimeFormat('es-MX',{weekday:'long',day:'numeric',month:'long'}).format(new Date(p.y,p.mo-1,p.d));return s.charAt(0).toUpperCase()+s.slice(1)};
 const shortDay=w=>{const p=parts(w);return new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'short'}).format(new Date(p.y,p.mo-1,p.d)).replace('.','')};
 const iso=w=>{const p=parts(w);let[h,m]=p.time.slice(0,5).split(':').map(Number);const pm=p.time.includes('p.m.');if(pm&&h<12)h+=12;if(!pm&&h===12)h=0;return `${p.y}-${String(p.mo).padStart(2,'0')}-${String(p.d).padStart(2,'0')}T${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:00-06:00`};
+const $=id=>document.getElementById(id);
 
-/* Destacadas */
-const [lead,...side]=FEAT;
-document.getElementById('featured').innerHTML=`
-  <article class="story feat-lead"><a href="${href(lead[0])}" tabindex="-1" aria-hidden="true"><div class="media ph">${img(lead[4])}</div></a>
-    <span class="topic">Tabasco</span><h2><a href="${href(lead[0])}">${esc(lead[1])}</a></h2>
-    <p class="summary">${esc(lead[2])}</p><div class="meta"><time datetime="${iso(lead[3])}">${parts(lead[3]).time}</time><span>${shortDay(lead[3])}</span></div></article>
-  <div class="feat-side">${side.map(f=>`<article class="story"><a href="${href(f[0])}" tabindex="-1" aria-hidden="true"><div class="media ph">${img(f[4])}</div></a>
-    <div><span class="topic">Tabasco</span><h3><a href="${href(f[0])}">${esc(f[1])}</a></h3><div class="meta"><time datetime="${iso(f[3])}">${parts(f[3]).time}</time><span>${shortDay(f[3])}</span></div></div></article>`).join('')}</div>`;
+/* Cabecera, metadatos y navegación */
+const isDep=SLUG.startsWith('deportes');
+document.title=`${S.nombre} | Diario Presente`;
+document.querySelector('meta[name=description]').content=S.descripcion;
+document.querySelector('link[rel=canonical]').href=LIVE+S.ruta;
+const ld=document.createElement('script');ld.type='application/ld+json';
+ld.textContent=JSON.stringify({'@context':'https://schema.org','@type':'CollectionPage',name:S.nombre,url:LIVE+S.ruta,isPartOf:{'@type':'WebSite',name:'Diario Presente',url:LIVE+'/'},breadcrumb:{'@type':'BreadcrumbList',itemListElement:[{'@type':'ListItem',position:1,name:'Inicio',item:LIVE+'/'},{'@type':'ListItem',position:2,name:S.nombre,item:LIVE+S.ruta}]}});
+document.head.appendChild(ld);
+$('crumbs').innerHTML='<a href="index.html">Inicio</a><span aria-hidden="true">›</span>'+(isDep&&SLUG!=='deportes'?`<a href="${secUrl('deportes')}">Deportes</a><span aria-hidden="true">›</span><span aria-current="page">${SLUG==='deportes-tabasco'?'Tabasco':'Mundo'}</span>`:`<span aria-current="page">${esc(S.nombre)}</span>`);
+$('secTitle').textContent=S.nombre;$('secDesc').textContent=S.descripcion;
+const chips=isDep?[['deportes','Todas'],['deportes-tabasco','Tabasco'],['deportes-mundo','Mundo']]:[[SLUG,'Todas'],...(RELATED[SLUG]||[]).map(r=>[r,DATA[r].nombre])];
+$('secTools').innerHTML=chips.map(c=>`<a href="${secUrl(c[0])}"${c[0]===SLUG?' class="on" aria-current="page"':''}>${esc(c[1])}</a>`).join('');
+$('featured').setAttribute('aria-label','Destacadas de '+S.nombre);
+$('secMore').textContent='Más en '+S.nombre;
+/* Menú: marca la sección actual */
+document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));
+const key=isDep?'deportes':SLUG;
+const cur=[...document.querySelectorAll('.nav a')].find(a=>a.getAttribute('href')===secUrl(key));
+if(cur){cur.classList.add('active');const dd=cur.closest('.dropdown');if(dd&&dd.firstElementChild!==cur)dd.firstElementChild.classList.add('active')}
+
+/* Destacadas (si la sección no trae suficientes, se completan con las más recientes) */
+let feat=S.destacadas.slice(),rest=S.notas.slice();
+if(feat.length<4)feat=feat.concat(rest.splice(0,4-feat.length));
+const [lead,...side]=feat;
+const when=n=>`<time datetime="${iso(n.f)}">${parts(n.f).time}</time><span>${shortDay(n.f)}</span>`;
+$('featured').innerHTML=`
+  <article class="story feat-lead"><a href="${href(lead.h)}" tabindex="-1" aria-hidden="true"><div class="media ph">${img(lead.i)}</div></a>
+    <span class="topic">${esc(S.nombre)}</span><h2><a href="${href(lead.h)}">${esc(lead.t)}</a></h2>
+    ${lead.s?`<p class="summary">${esc(lead.s)}</p>`:''}<div class="meta">${when(lead)}</div></article>
+  ${side.length?`<div class="feat-side">${side.map(f=>`<article class="story"><a href="${href(f.h)}" tabindex="-1" aria-hidden="true"><div class="media ph">${img(f.i)}</div></a>
+    <div><span class="topic">${esc(S.nombre)}</span><h3><a href="${href(f.h)}">${esc(f.t)}</a></h3><div class="meta">${when(f)}</div></div></article>`).join('')}</div>`:''}`;
+if(!side.length)$('featured').style.gridTemplateColumns='1fr';
 
 /* Listado con "Más noticias" (12 por vez); separadores por día; dos anuncios in-feed */
 const STEP=12;let shown=0,lastDay='';
-const list=document.getElementById('list'),more=document.getElementById('more'),info=document.getElementById('moreInfo'),btn=document.getElementById('moreBtn');
+const list=$('list'),more=$('more'),info=$('moreInfo'),btn=$('moreBtn');
 const AD2=`<aside class="ad-gob" aria-label="Publicidad 2"><span class="ad-label">Gobierno de Tabasco</span><strong>Programas de Bienestar y Desarrollo Social 2026</strong><p>Slot GAM: <code>top_leaderboard</code> (728 × 90)</p></aside>`;
 const AD3=`<aside class="ad-gob" aria-label="Publicidad 3"><span class="ad-label">Secretaría de Salud</span><strong>Campaña de Prevención y Salud Comunitaria</strong><p>Slot GAM: <code>bottom_leaderboard</code> (728 × 90)</p></aside>`;
 function render(){
   let html='';
-  NEWS.slice(shown,shown+STEP).forEach((n,k)=>{
-    const idx=shown+k, day=dayLabel(n[3]);
+  rest.slice(shown,shown+STEP).forEach((n,k)=>{
+    const idx=shown+k,day=dayLabel(n.f);
     if(day!==lastDay){html+=`<h2 class="day">${day}</h2>`;lastDay=day}
-    html+=`<article class="item story"><a href="${href(n[0])}" tabindex="-1" aria-hidden="true"><div class="media ph">${img(n[4])}</div></a>
-      <div><h3><a href="${href(n[0])}">${esc(n[1])}</a></h3><p>${esc(n[2])}</p><div class="meta"><time datetime="${iso(n[3])}">${parts(n[3]).time}</time><span>${shortDay(n[3])}</span></div></div></article>`;
-    if(idx===3)html+=AD2; if(idx===9)html+=AD3;
+    html+=`<article class="item story"><a href="${href(n.h)}" tabindex="-1" aria-hidden="true"><div class="media ph">${img(n.i)}</div></a>
+      <div><h3><a href="${href(n.h)}">${esc(n.t)}</a></h3>${n.s?`<p>${esc(n.s)}</p>`:''}<div class="meta">${when(n)}</div></div></article>`;
+    if(idx===3)html+=AD2;
+    if(idx===9)html+=AD3;
   });
   list.insertAdjacentHTML('beforeend',html);
-  shown=Math.min(NEWS.length,shown+STEP);
-  info.textContent=shown<NEWS.length?`Mostrando ${shown} de ${NEWS.length} notas`:'No hay más noticias por mostrar.';
-  more.classList.toggle('done',shown>=NEWS.length);
+  shown=Math.min(rest.length,shown+STEP);
+  info.textContent=shown<rest.length?`Mostrando ${shown} de ${rest.length} notas`:'No hay más noticias por mostrar.';
+  more.classList.toggle('done',shown>=rest.length);
 }
-btn.addEventListener('click',render);render();
-document.getElementById('countTop').textContent=`${FEAT.length+NEWS.length} notas`;
-document.getElementById('countTop').removeAttribute('href');
+if(rest.length){btn.addEventListener('click',render);render()}
+else{list.innerHTML='<p class="empty">Por ahora esta sección no tiene más notas publicadas.</p>';more.classList.add('done');info.textContent=''}
+$('countTop').textContent=`${feat.length+rest.length} notas`;
+$('countTop').removeAttribute('href');
 
-document.getElementById('ranking').innerHTML=RANK.map(r=>`<li><a href="${r[1]}">${esc(r[0])}</a></li>`).join('');
+/* "Más leído": marcador con las notas más recientes de la sección (falta la fuente real de lecturas) */
+$('ranking').innerHTML=feat.concat(rest).slice(0,5).map(n=>`<li><a href="${href(n.h)}">${esc(n.t)}</a></li>`).join('');
 const tk=TICK.map(a=>`<a href="${a[1]}">${esc(a[0])}</a>`).join('');
-document.getElementById('tickerTrack').innerHTML=tk+tk;
+$('tickerTrack').innerHTML=tk+tk;
 </script>
 <script src="assets/site.js"></script>
 </body>

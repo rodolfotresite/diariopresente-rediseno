@@ -244,3 +244,39 @@ Se auditaron las 6 páginas (home, nota, sección, opinión, columna, edición i
 - Lectores de pantalla reales (NVDA, VoiceOver): la revisión fue automática sobre el DOM, no con tecnología asistiva.
 - Contraste de textos sobre degradados e imágenes (tarjeta del boletín, anuncios, títulos sobre fotos), que el cálculo automático omite.
 - Navegadores distintos a Chromium y dispositivos físicos.
+
+## 12. Secciones completas y publicación de la vista previa
+
+### Secciones (`seccion.html?s=…`)
+
+`seccion.html` ahora es una sola plantilla que sirve **13 secciones** con notas reales (453 notas con foto, hora, fecha, resumen y enlace), leídas de `data/secciones.js`. Ese archivo lo genera `tools/fetch_secciones.py` descargando las portadas públicas del sitio actual.
+
+| Sección | Destacadas | Notas en listado |
+|---|---|---|
+| Tabasco | 4 | 40 |
+| Villahermosa | 4 | 19 |
+| Sucesos | 4 | 39 |
+| México | 4 | 40 |
+| Política | 4 | 40 |
+| Mundo | 4 | 40 |
+| Deportes | 4 | 40 |
+| Deportes · Tabasco | 4 (completadas con las más recientes) | 22 |
+| Deportes · Mundo | 4 (completadas) | 36 |
+| Espectáculos | 4 | 40 |
+| Actualidad | 4 | 34 |
+| Cultura | 4 | 12 |
+| Sociales | 3 (completadas) | 0 (la sección solo tiene 3 notas) |
+
+- **Comportamiento:** accesos rápidos a secciones relacionadas, miga de pan con la sección padre en las subsecciones de Deportes, menú con la sección activa y mensaje cuando no hay más notas. Si el parámetro `s` no existe, muestra Tabasco.
+- **Menú y pie** de las 6 páginas enlazan a cada sección. Los 416 enlaces de imagen se verificaron: todos cargan.
+- **Subsecciones de Deportes:** el sitio actual no trae destacadas en `/deportes/tabasco/` ni `/deportes/mundo/`; el draft toma las 4 más recientes.
+- **Sociales** tiene 3 notas y la más reciente es de septiembre; Cultura, 16. Conviene preguntar al cliente si siguen activas.
+
+### Vista previa en GitHub Pages
+
+- **Enlaces a páginas no rediseñadas** (notas, columnas, ediciones por fecha, Contacto: unas 90 rutas distintas): `site.js` los reescribe a `https://diariopresente.mx/…` y los abre en una pestaña nueva, para que no den 404 en Pages.
+- **Distintivo** "Borrador de rediseño · contenido de ejemplo" en todas las páginas.
+- **No indexar:** `<meta name="robots" content="noindex, nofollow">` en todas las páginas y `robots.txt` con `Disallow: /`.
+- **Notas de ejemplo:** el panel "Más leído" indica que son datos de ejemplo. En secciones se llena con las notas más recientes.
+- **Archivos de Pages:** `.nojekyll` y `404.html`.
+- **Repositorio público** en la cuenta personal, por elección del usuario. Contiene contenido y fotos de diariopresente.mx y el correo de un columnista, usados como ejemplo.

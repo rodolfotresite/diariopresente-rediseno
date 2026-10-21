@@ -36,3 +36,16 @@ document.addEventListener('click',e=>{const a=e.target.closest('a[href="#"]');if
 /* Ticker: la segunda copia (para el bucle de la animación) no debe leerse ni recibir foco dos veces */
 const tt=document.getElementById('tickerTrack');
 if(tt){const kids=[...tt.children];kids.slice(kids.length/2).forEach(a=>{a.setAttribute('aria-hidden','true');a.tabIndex=-1})}
+
+/* ---- Vista previa del draft (GitHub Pages) ----
+   Las notas, columnas y páginas que aún no existen en el draft usan rutas del sitio actual (/seccion/slug/id).
+   En la vista previa esos enlaces se abren en diariopresente.mx, en una pestaña nueva.
+   Quitar este bloque cuando las páginas se generen desde el CMS. */
+(function(){
+  const LIVE='https://diariopresente.mx';
+  const fixA=a=>{const h=a.getAttribute('href');if(!h||h.startsWith('//'))return;a.setAttribute('href',LIVE+h);a.target='_blank';a.rel='noopener';if(!a.title)a.title='Abre en el sitio actual (aún no rediseñado)'};
+  const fixAll=root=>root.querySelectorAll('a[href^="/"]').forEach(fixA);
+  fixAll(document);
+  new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==1)return;if(n.matches('a[href^="/"]'))fixA(n);fixAll(n)}))).observe(document.body,{childList:true,subtree:true});
+  const b=document.createElement('div');b.className='draft-badge';b.textContent='Borrador de rediseño · contenido de ejemplo';document.body.appendChild(b);
+})();

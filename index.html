@@ -2,6 +2,7 @@
 <html lang="es-MX" data-theme="light">
 <head>
   <meta charset="utf-8">
+  <meta name="robots" content="noindex, nofollow">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#184F76">
   <meta name="description" content="Diario Presente: noticias de Tabasco, Villahermosa, México y el mundo. Diario del Sureste de México.">
@@ -38,19 +39,19 @@
     <div class="container nav-row" id="navMenu">
       <a class="active" href="index.html">Inicio</a>
       <a href="seccion.html">Tabasco</a>
-      <a href="/villahermosa">Villahermosa</a>
-      <a href="/sucesos">Sucesos</a>
-      <a href="/mexico">México</a>
-      <a href="/politica">Política</a>
+      <a href="seccion.html?s=villahermosa">Villahermosa</a>
+      <a href="seccion.html?s=sucesos">Sucesos</a>
+      <a href="seccion.html?s=mexico">México</a>
+      <a href="seccion.html?s=politica">Política</a>
       <div class="dropdown">
-        <a href="/deportes" aria-haspopup="true">Deportes ▾</a>
-        <div class="dropdown-content"><a href="/deportes/tabasco/">Tabasco</a><a href="/deportes/mundo/">Mundo</a></div>
+        <a href="seccion.html?s=deportes" aria-haspopup="true">Deportes ▾</a>
+        <div class="dropdown-content"><a href="seccion.html?s=deportes-tabasco">Tabasco</a><a href="seccion.html?s=deportes-mundo">Mundo</a></div>
       </div>
-      <a href="/espectaculos">Espectáculos</a>
+      <a href="seccion.html?s=espectaculos">Espectáculos</a>
       <a href="opinion.html">Opinión</a>
       <div class="dropdown">
         <a href="#" aria-haspopup="true">Más ▾</a>
-        <div class="dropdown-content"><a href="/mundo">Mundo</a><a href="/actualidad">Actualidad</a><a href="/cultura">Cultura</a><a href="/sociales">Sociales</a><a href="#multimedia">Multimedia</a></div>
+        <div class="dropdown-content"><a href="seccion.html?s=mundo">Mundo</a><a href="seccion.html?s=actualidad">Actualidad</a><a href="seccion.html?s=cultura">Cultura</a><a href="seccion.html?s=sociales">Sociales</a><a href="#multimedia">Multimedia</a></div>
       </div>
     </div>
   </nav>
@@ -111,7 +112,7 @@
         <p>Secretaría de Turismo · Ruta del Cacao</p>
       </aside>
 
-      <section class="panel"><h3>Más leído</h3>
+      <section class="panel"><h3>Más leído</h3><small class="demo-note">Ejemplo de diseño: faltan las lecturas reales.</small>
         <ol class="ranking" id="ranking"></ol>
         <!-- DATO PENDIENTE: hoy el sitio no publica ranking; requiere fuente (GA4 / CMS) -->
       </section>
@@ -161,8 +162,8 @@
 <footer><div class="container">
   <div class="footer-grid">
     <div><div class="footer-brand"><svg class="logo" viewBox="0 0 274.8 38" role="img" aria-label="diariopresente.mx"><use href="#logo-dp"/></svg></div><p>En Tabasco, Diario del Sureste de México. Periodismo local, útil y cercano.</p><p><a href="#">Acerca de Grupo Presente Multimedios</a></p></div>
-    <div><h3>Secciones</h3><ul><li><a href="seccion.html">Tabasco</a></li><li><a href="/villahermosa">Villahermosa</a></li><li><a href="/sucesos">Sucesos</a></li><li><a href="/mexico">México</a></li><li><a href="/politica">Política</a></li><li><a href="/mundo">Mundo</a></li></ul></div>
-    <div><h3>Más</h3><ul><li><a href="/deportes">Deportes</a></li><li><a href="/espectaculos">Espectáculos</a></li><li><a href="/actualidad">Actualidad</a></li><li><a href="/cultura">Cultura</a></li><li><a href="/sociales">Sociales</a></li><li><a href="opinion.html">Opinión</a></li></ul></div>
+    <div><h3>Secciones</h3><ul><li><a href="seccion.html">Tabasco</a></li><li><a href="seccion.html?s=villahermosa">Villahermosa</a></li><li><a href="seccion.html?s=sucesos">Sucesos</a></li><li><a href="seccion.html?s=mexico">México</a></li><li><a href="seccion.html?s=politica">Política</a></li><li><a href="seccion.html?s=mundo">Mundo</a></li></ul></div>
+    <div><h3>Más</h3><ul><li><a href="seccion.html?s=deportes">Deportes</a></li><li><a href="seccion.html?s=espectaculos">Espectáculos</a></li><li><a href="seccion.html?s=actualidad">Actualidad</a></li><li><a href="seccion.html?s=cultura">Cultura</a></li><li><a href="seccion.html?s=sociales">Sociales</a></li><li><a href="opinion.html">Opinión</a></li></ul></div>
     <div><h3>Contacto</h3><address>Av. Pagés Llergo No. 116,<br>Nueva Villahermosa, Tabasco<br>Tel. (01 993) 312-17-55<br><a href="/contacto">Escríbenos</a></address></div>
   </div>
   <div class="legal"><span>© 2026 Diario Presente. Todos los derechos reservados.</span><span><a href="#">Términos legales y aviso de privacidad</a></span></div>
@@ -185,35 +186,35 @@ const D={
   ],
   /* Cada nota: [título, enlace, imagen]. La primera de cada sección es la principal. */
   cats:[
-    {n:'Sucesos',u:'/sucesos',a:[
+    {n:'Sucesos',u:'seccion.html?s=sucesos',a:[
       ['Nissan Frontier Pro PHEV 2026 llega a Villahermosa con tecnología híbrida enchufable','/sucesos/nissan-frontier-pro-phev-2026-llega-a-villahermosa-con-tecnologia-hibrida-enchufable/470402',B1+'2026/10/20/3jpg-c4b65542-focus-min0.04-min0.08-800-550.webp'],
       ['Incendio en plataforma Abkatún-H: Pemex despliega protocolos de seguridad','/sucesos/incendio-en-plataforma-abkatun-h-pemex-activa-protocolos/470340',B1+'2026/10/19/crop-w992-h496-jadgs7nssrfale4pc74jw43myy-bdf000df-focus-0-0-800-550.webp'],
       ['Trágico accidente en Guayaquil: Padre Patricio fallece por caída de cruz','/sucesos/homilia-tragica-padre-patricio-muere-por-accidente/470328',B1+'2026/10/19/crop-w1200-h600-falleceels5216691374527cus1792344484716-2ceff34f-focus-0-0-800-550.webp']]},
-    {n:'Villahermosa',u:'/villahermosa',a:[
+    {n:'Villahermosa',u:'seccion.html?s=villahermosa',a:[
       ['Artífices, Arte y Cultura agradece apoyo de SIT-Presente y Foro Cultural Viva','/villahermosa/celebracion-del-encuentro-max-rojas-2026-en-tabasco/470410',B1+'2026/10/20/crop-w1280-h640-whatsapp-image-2026-10-20-at-100658-am-54a2860b-focus-0-0-800-550.webp'],
       ['Importancia de la detección temprana del cáncer de mama en Villahermosa','/villahermosa/acciones-de-prevencion-del-cancer-de-mama-en-centro/470348',B1+'2026/10/19/crop-w1440-h720-whatsapp-image-2026-10-19-at-54933-pm-c964c57c-focus-0-0-800-550.webp'],
       ['Alerta máxima en Tabasco por torrenciales','/villahermosa/riesgo-de-desbordamiento-de-rios-y-deslaves-en-tabasco/470143',B1+'2026/10/17/crop-w1280-h640-pre03foto1-53832415-focus-0-0-800-550.webp']]},
-    {n:'México',u:'/mexico',a:[
+    {n:'México',u:'seccion.html?s=mexico',a:[
       ['Claudia Sheinbaum anuncia programa de Vivienda para el Bienestar','/mexico/claudia-sheinbaum-anuncia-programa-de-vivienda/470395',B1+'2026/10/20/crop-w9000-h4500-sheinbaum3-1416204f-focus-0-0-800-550.webp'],
       ['Avanza pago a farmacéuticas y se espera plan del IMSS','/mexico/avances-en-pago-a-farmaceuticas-y-plan-imss-esta-semana/470393',B1+'2026/10/20/crop-w1080-h540-alessandra-2026-10-20t112213969-1ac6a110-focus-0-0-800-550.webp'],
       ['Eduardo Clark aborda desvío de medicamentos en sector salud','/mexico/eduardo-clark-aborda-desvio-de-medicamentos-en-sector-salud/470391',B1+'2026/10/20/crop-w813-h406-6ad79a5c13b4a-14d17d34-focus-0-0-800-550.webp']]},
-    {n:'Política',u:'/politica',a:[
+    {n:'Política',u:'seccion.html?s=politica',a:[
       ['Reanudada exportación de ganado sonorense a EU por Agua Prieta','/politica/descartan-fiebre-aftosa-en-ganado-sonora-exportado/470408',B1+'2026/10/20/crop-w1200-h600-reanudan-exportacion-de-ganado-sonorense-por-agua-prieta-hacia-eu-tras-descartar-fiebre-aftosa2250430c-893a-422f-875c-9ad8eefa464amedialjnimgndimagefullsize-086219dc-focus-0-0-800-550.webp'],
       ['Claudia Sheinbaum respalda investigación contra César Jáuregui por traición a la patria','/politica/sheinbaum-respalda-investigacion-sobre-cesar-jauregui/470301',B1+'2026/10/19/crop-w1456-h728-f1456x819-134365315140235050-da344937-focus-0-0-800-550.webp'],
       ['México denuncia muerte de migrante en centro de detención de Texas','/politica/atencion-medica-a-migrantes-detenidos-mexico-toma-medidas/470300',B1+'2026/10/19/crop-w1268-h634-largeehunafoto03e75531a4-7636db63-focus-min0.63-0.54-800-550.webp']]},
-    {n:'Mundo',u:'/mundo',a:[
+    {n:'Mundo',u:'seccion.html?s=mundo',a:[
       ['Nueve muertos por ataques rusos en Ucrania','/mundo/bombardeos-civiles-en-ucrania-impacto-y-victimas/470401',B1+'2026/10/20/crop-w1200-h600-rusia-lanza-misiles-y-drones-contra-zonas-civiles-en-ucrania-9-muertos82f6d4fe-e162-483c-a6f1-ba781f94b777media-b230bf73-focus-0-0-800-550.webp'],
       ['Pete Hegseth en Medio Oriente para supervisar tropas en misión histórica','/mundo/pete-hegseth-en-medio-oriente-mision-militar/470360',B1+'2026/10/20/crop-w1200-h600-image-2026-10-19t210320336-50662b94-focus-0-0-800-550.webp'],
       ['Recital de Kotaro Fukuma y Adrián Justus: Puentes sonoros entre Japón y México','/mundo/musica-tradicional-en-concierto-kotaro-fukuma-y-adrian-justus/470351',B1+'2026/10/20/crop-w1200-h600-image-2026-10-19t182200533-7e0ecb8c-focus-0-0-800-550.webp']]},
-    {n:'Deportes',u:'/deportes',a:[
+    {n:'Deportes',u:'seccion.html?s=deportes',a:[
       ['Adidas revive la icónica playera verde del Tricolor del Mundial 2010','/deportes/playera-verde-aguila-adidas-relanzamiento-esperado/470350',B1+'2026/10/20/crop-w768-h384-image-2026-10-19t180635942-37e7040f-focus-0-0-800-550.webp'],
       ['Gimnasta mexicana Victoria Mata asegura su lugar en final de salto','/deportes/campeonato-mundial-victoria-mata-clasifica-a-final-de-salto/470347',B1+'2026/10/19/crop-w1200-h600-image-2026-10-19t172356766-7ff83cfd-focus-0-0-800-550.webp'],
       ['Guardiola exige solidaridad internacional con Gaza y respaldo a la UNRWA','/deportes/pep-guardiola-exige-solidaridad-con-gaza-y-unrwa/470329',B1+'2026/10/19/crop-w1080-h540-alessandra-2026-10-19t135801954-a20ad483-focus-0-0.42-800-550.webp']]},
-    {n:'Espectáculos',u:'/espectaculos',a:[
+    {n:'Espectáculos',u:'seccion.html?s=espectaculos',a:[
       ['Príncipe Harry confiesa sentir la energía de Lady Di y admite: "La echo de menos"','/espectaculos/el-duelo-del-principe-harry-por-lady-di/470421',B1+'2026/10/20/crop-w1080-h540-alessandra-2026-10-20t134559528-77ad21e8-focus-0-0-365-228.webp'],
       ['Maribel Guardia renuncia a convivir con su nieto por plan en su contra','/espectaculos/maribel-guardia-renuncia-por-plan-en-su-contra/470386',B1+'2026/10/20/crop-w982-h491-kkvslrez2zbq7nwiypne64xpem-a8ae8563-focus-min0.01-0.13-800-550.webp'],
       ['Muere Carlos Miguel, El Poncho, actor de telenovelas tras impactante cambio a vendedor de tacos','/espectaculos/fallece-carlos-miguel-el-poncho-de-actor-de-telenovelas/470387',B1+'2026/10/20/crop-w775-h388-image-2026-10-20t103837806-a93039d6-focus-0-0-800-550.webp']]},
-    {n:'Actualidad',u:'/actualidad',a:[
+    {n:'Actualidad',u:'seccion.html?s=actualidad',a:[
       ['Estudio de la UNAM identifica daños genéticos en tortugas por ftalato DEHP','/actualidad/investigacion-unam-impacto-del-ftalato-dehp-en-tortugas/470180',B1+'2026/10/17/crop-w680-h340-image-2026-10-17t155308077-67267d10-focus-0-0-800-550.webp'],
       ['Alerta en Costa Rica por aumento de casos de sífilis en lactantes','/actualidad/alerta-en-costa-rica-por-sifilis-en-lactantes/470210',B1+'2026/10/18/crop-w935-h468-image-a8c2a504-focus-min0.05-0.04-800-550.webp'],
       ['El poder de los jingles pegajosos: por qué la publicidad digital se queda en la mente del usuario','/actualidad/el-poder-de-los-jingles-pegajosos-por-quela-publicidad-digital-de-entretenimiento-se-queda-en-la-mente-del-usuario/470303',B1+'2026/10/19/ccdiariopresenteimagen-70cac921-focus-0-0-800-550.webp']]}
