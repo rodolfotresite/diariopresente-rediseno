@@ -222,3 +222,10 @@
 .ad-layer{width:min(640px,calc(100% - 24px))}.ad-layer .ad-demo-box{min-height:380px}
 .ad-inter{width:min(360px,100vw);height:min(640px,100vh);max-height:100vh;border-radius:0}.ad-inter .ad-demo-box{height:100%;border-radius:0}
 @media(max-width:700px){.ad-guide th:nth-child(4),.ad-guide td:nth-child(4){display:none}}
+
+/* Logo de la cabecera (raster oficial "Presente, Diario del Sureste"): versión azul sobre fondo claro y blanca sobre fondo oscuro */
+.brand-logo{display:block;height:90px;width:auto}
+.brand-logo-oscuro{display:none}
+[data-theme="dark"] .brand-logo-claro{display:none}
+[data-theme="dark"] .brand-logo-oscuro{display:block}
+@media(max-width:620px){.brand-logo{height:60px}}

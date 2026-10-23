@@ -350,3 +350,12 @@ Medidas exactas a 1280 px (970 × 90, 728 × 90, 970 × 200, 970 × 250, 300 × 
 - **Móvil:** el documento no define formatos móviles, salvo el Intersticial. Hoy los espacios se escalan al ancho de la pantalla; las medidas móviles (320 × 50, 300 × 250…) habría que definirlas.
 - **Notas, columnas y edición impresa:** ¿se ofrecen espacios ahí? Si sí, falta definir cuáles.
 - **Top Large Leaderboard dentro del encabezado:** se colocó sobre el menú como en el documento; el menú queda fijo al desplazarse y el espacio se va con la cabecera.
+
+## 15. Logo de la cabecera
+
+A petición, el encabezado de todas las páginas usa el logo **"Presente, Diario del Sureste"** (imagen entregada: letras blancas con sombra naranja sobre fondo azul) en lugar del SVG de "diariopresente.mx". El **pie conserva el logo anterior**.
+
+- **Inversión de colores.** Para el fondo blanco se separó cada color del fondo azul: las letras blancas pasan a azul de marca (`#156DAD`), el fondo azul queda transparente, la sombra naranja se conserva y la barra inferior pasa a un azul suave. La barra se reconstruyó como rectángulo liso porque el original traía ruido de compresión en su borde.
+- **Modo oscuro.** Se generó una segunda versión con las letras blancas y la barra clara original; el encabezado alterna entre ambas según el tema.
+- **Tamaño.** 242 × 90 px en escritorio y 154 × 60 px en móvil; el encabezado crece 6 px.
+- **Limitación.** El original es una imagen de 727 × 280 px, no un vector. Se ve nítido a ese tamaño, pero en pantallas de alta densidad convendría pedir el logo en SVG o en un PNG de al menos 1500 px de ancho.

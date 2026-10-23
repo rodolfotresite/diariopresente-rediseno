@@ -76,7 +76,7 @@ Si una nota o columna no está en `data/`, la plantilla muestra un aviso con enl
 ## Decisiones de diseño
 
 - **Paleta:** la del sitio actual: `#156DAD` (marca), `#184F76` (menú y pie), `#1B659A` (etiquetas), blanco. Sin rojo.
-- **Logo:** el SVG oficial, recoloreado a azul sobre fondo blanco y en blanco en pie y modo oscuro.
+- **Logo:** en la cabecera, el logo "Presente, Diario del Sureste" (PNG con fondo transparente, `assets/logo-presente-claro.png` y `logo-presente-oscuro.png`): letras azules sobre fondo claro y blancas en modo oscuro, con la sombra naranja original. El pie conserva el SVG oficial (`assets/logo-diariopresente-blanco.svg`), incrustado en el HTML.
 - **Menú:** 8 secciones principales y "Más ▾" (Mundo, Actualidad, Cultura, Sociales, Multimedia).
 - **Texto:** 5 niveles (88 %–150 %) que se recuerdan entre visitas; el control A− / A+ está en la nota y la columna.
 
