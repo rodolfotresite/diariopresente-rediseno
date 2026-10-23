@@ -78,6 +78,8 @@
       <article class="side-story story"><div class="media"><img src="https://blob.diariopresente.mx/images/2026/10/20/crop-w1280-h640-rehabilitacion-24-973c84a1-focus-0-0-800-550.webp" alt="" loading="lazy" onerror="this.remove()"></div><div><span class="topic">Tabasco</span><h3><a href="nota.html">Gobierno del Pueblo de Tabasco cumple compromiso con la rehabilitación integral del Parque Museo La Venta</a></h3><div class="meta"><span>Hoy</span></div></div></article>
       <article class="side-story story"><div class="media"><img src="https://blob.diariopresente.mx/images/2026/10/20/crop-w1600-h800-inauguracion-obra-tecnica--9-01-a1a2a53e-focus-0-0-800-550.webp" alt="" loading="lazy" onerror="this.remove()"></div><div><span class="topic">Tabasco</span><h3><a href="/tabasco/educacion-de-calidad-secundaria-tecnica-9-renovada-por-gobierno/470433">Gobierno del Pueblo transforma la Secundaria Técnica 9 con espacios dignos y seguros</a></h3><div class="meta"><span>Hoy</span></div></div></article>
       <article class="side-story story"><div class="media"><img src="https://blob.diariopresente.mx/images/2026/10/20/crop-w1200-h600-victor-valverde-2-29ae8aa1-focus-0-0-800-550.webp" alt="" loading="lazy" onerror="this.remove()"></div><div><span class="topic">Espectáculos</span><h3><a href="/espectaculos/victor-valverde-anuncia-tranquilion-tras-agresion/470429">Víctor Valverde presenta su nuevo corrido 'Tranquilion' tras reaparecer en redes sociales</a></h3><div class="meta"><span>Hoy</span></div></div></article>
+      <article class="side-story story"><div class="media"><img src="https://blob.diariopresente.mx/images/2026/10/20/crop-w733-h367-image-2026-10-20t165136583-581656c9-focus-0-0-800-550.webp" alt="" loading="lazy" onerror="this.remove()"></div><div><span class="topic">Mundo</span><h3><a href="/mundo/medidas-migratorias-de-trump-revocacion-de-visas/470436">Nuevas condiciones para visas H-1B en Estados Unidos</a></h3><div class="meta"><span>Hoy</span></div></div></article>
+      <article class="side-story story"><div class="media"><img src="https://blob.diariopresente.mx/images/2026/10/20/crop-w1131-h566-image-2026-10-20t164720409-b873c9dc-focus-0-0-800-550.webp" alt="" loading="lazy" onerror="this.remove()"></div><div><span class="topic">Espectáculos</span><h3><a href="/espectaculos/selena-gomez-deja-el-vapeo-y-habla-sobre-su-voz/470435">Selena Gomez comparte su experiencia dejando el vapeo</a></h3><div class="meta"><span>Hoy</span></div></div></article>
     </div>
   </section>
 
@@ -148,6 +150,7 @@
 
 <dialog id="searchDialog"><div class="search-box"><button class="close" id="closeSearch" aria-label="Cerrar">×</button><h2>Buscar noticias</h2><form class="search-line"><label class="sr-only" for="query">Buscar</label><input id="query" type="search" placeholder="Escribe una palabra o tema…" autofocus><button class="btn">Buscar</button></form></div></dialog>
 
+<script src="data/secciones.js"></script>
 <script>
 /* Datos reales de la portada de diariopresente.mx (20-oct-2026). En producción vendrían del CMS/API. */
 const B1='https://diariopresenterm.blob.core.windows.net/images/';
@@ -213,9 +216,52 @@ const D={
 const esc=s=>s.replace(/&/g,'&amp;').replace(/</g,'&lt;');
 const imgTag=src=>`<img src="${src}" alt="" loading="lazy" onerror="this.remove()">`;
 
-document.getElementById('recent').insertAdjacentHTML('afterbegin',D.recent.map(a=>`
-  <article class="card story"><a href="${a.h}" tabindex="-1" aria-hidden="true"><div class="media ph">${imgTag(a.i)}</div></a>
-  <span class="topic">${a.s}</span><h3><a href="${a.h}">${esc(a.t)}</a></h3><div class="meta"><span>Hoy</span></div></article>`).join(''));
+/* "Lo más reciente": las notas más recientes de todas las secciones que no están ya en la portada.
+   Se agregan de dos en dos hasta que la columna alcanza la altura de la columna lateral (sin huecos). */
+const idDe=h=>h.split('/').filter(Boolean).pop();
+const YA=new Set(['470430','470434','470433','470429','470436','470435']);   // destacada principal y notas laterales
+const tiempo=f=>{const m=f.match(/(\d\d):(\d\d) ([ap])\.m\. (\d\d)\/(\d\d)\/(\d{4})/);let h=+m[1];if(m[3]==='p'&&h<12)h+=12;if(m[3]==='a'&&h===12)h=0;return new Date(+m[6],+m[5]-1,+m[4],h,+m[2]).getTime()};
+const cuando=f=>{const m=f.match(/(\d\d):(\d\d) ([ap])\.m\. (\d\d)\/(\d\d)\/(\d{4})/);const d=new Date(+m[6],+m[5]-1,+m[4]);return m[1]+':'+m[2]+' '+m[3]+'.m. · '+new Intl.DateTimeFormat('es-MX',{day:'numeric',month:'short'}).format(d).replace('.','')};
+const SEC=window.SECCIONES||{};
+const vistos=new Set(YA),pool=[];
+Object.entries(SEC).forEach(([slug,S])=>{[...S.destacadas,...S.notas].forEach(n=>{const id=idDe(n.h);if(vistos.has(id)||!n.i)return;vistos.add(id);const seg=n.h.split('/')[1];pool.push({...n,sec:(SEC[seg]||S).nombre})})});
+pool.sort((x,y)=>tiempo(y.f)-tiempo(x.f));
+let usadas=0;
+const tarjeta=n=>`
+  <article class="card story"><a href="${n.h}" tabindex="-1" aria-hidden="true"><div class="media ph">${imgTag(n.i)}</div></a>
+  <span class="topic">${esc(n.sec)}</span><h3><a href="${n.h}">${esc(n.t)}</a></h3><div class="meta"><span>${cuando(n.f)}</span></div></article>`;
+const cardsEl=document.getElementById('recent');
+const agrega=k=>{cardsEl.insertAdjacentHTML('beforeend',pool.slice(usadas,usadas+k).map(tarjeta).join(''));usadas+=k};
+agrega(6);
+function equilibra(){
+  const grid=document.querySelector('.content-grid'),lado=document.querySelector('.content-grid .sticky');
+  if(!grid||!lado||getComputedStyle(grid).gridTemplateColumns.split(' ').length<2)return;
+  const extent=el=>{const t=el.getBoundingClientRect().top;let b=t;[...el.children].forEach(c=>{b=Math.max(b,c.getBoundingClientRect().bottom)});return b-t};
+  const meta=lado.getBoundingClientRect().height;
+  let guardia=0;
+  while(guardia++<10&&usadas<pool.length&&extent(cardsEl)<meta-60){
+    const antes=extent(cardsEl);
+    agrega(2);
+    if(Math.abs(extent(cardsEl)-meta)>=Math.abs(antes-meta)){  // pasarse deja más hueco que quedarse corto: se deshace
+      cardsEl.lastElementChild.remove();cardsEl.lastElementChild.remove();usadas-=2;break;
+    }
+  }
+}
+equilibra();addEventListener('load',equilibra);addEventListener('resize',equilibra);
+
+/* Notas laterales de la portada: se muestran las que caben junto al titular principal (mínimo 3); el resto de la altura se reparte entre ellas */
+function ajustaLaterales(){
+  const hero=document.querySelector('.hero'),lista=document.querySelector('.side-list');
+  if(!hero||!lista)return;
+  const notas=[...lista.querySelectorAll('.side-story')];
+  notas.forEach(n=>n.style.display='');
+  if(getComputedStyle(lista.parentElement).gridTemplateColumns.split(' ').length<2)return;
+  const contenido=[...hero.children].reduce((m,c)=>Math.max(m,c.getBoundingClientRect().bottom),0)-hero.getBoundingClientRect().top;
+  const visibles=notas.slice();
+  const natural=()=>visibles.reduce((a,n)=>a+n.offsetHeight,0)+20*(visibles.length-1);
+  while(visibles.length>3&&natural()>contenido+50)visibles.pop().style.display='none';
+}
+ajustaLaterales();addEventListener('load',ajustaLaterales);addEventListener('resize',ajustaLaterales);
 
 const catBlocks=D.cats.map(c=>{
   const [lead,...rest]=c.a;

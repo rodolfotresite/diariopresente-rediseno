@@ -359,3 +359,17 @@ A petición, el encabezado de todas las páginas usa el logo **"Presente, Diario
 - **Modo oscuro.** Se generó una segunda versión con las letras blancas y la barra clara original; el encabezado alterna entre ambas según el tema.
 - **Tamaño.** 242 × 90 px en escritorio y 154 × 60 px en móvil; el encabezado crece 6 px.
 - **Limitación.** El original es una imagen de 727 × 280 px, no un vector. Se ve nítido a ese tamaño, pero en pantallas de alta densidad convendría pedir el logo en SVG o en un PNG de al menos 1500 px de ancho.
+
+## 16. Huecos de maquetación en bloques de dos columnas
+
+**Problema (revisión del cliente):** quedaban espacios vacíos en el home — bajo las notas laterales de la portada y bajo "Lo más reciente" — por el desfase de altura entre columnas. Se midió la altura real del contenido de cada bloque de dos columnas en todas las páginas y se encontraron más casos: el destacado de las secciones y, sobre todo, la columna lateral de las secciones (hasta 3,000 px de hueco, por haber quitado que se fijara al desplazarse).
+
+**Correcciones:**
+
+- **Portada del home.** De 3 a 5 notas laterales, repartidas a lo alto del titular principal. Se muestran solo las que caben (mínimo 3) y el resto de la altura se reparte entre ellas. Entre 901 y 1060 px pasan a una fila de tres bajo el titular, como en tablet.
+- **"Lo más reciente".** Ahora son las notas más recientes de todas las secciones (ya no una lista fija) y se agregan de dos en dos hasta igualar la altura de la columna lateral. A 1280 px son 8 notas y la diferencia es de 21 px.
+- **Destacado de las secciones.** Las tres notas laterales se reparten a lo alto del destacado principal (antes quedaban 150–210 px de hueco).
+- **Columnas laterales altas** (home, secciones, opinión, nota, columna, edición impresa). Si la columna es más alta que la pantalla, se fija con un `top` negativo: al desplazarse, su parte baja también queda a la vista en lugar de dejar un hueco a su lado.
+- **Edición impresa.** El calendario se acompaña de un panel "Ventana Sur y suplementos" con accesos a esas secciones, y ambos se fijan al desplazarse.
+
+**Resultado a 1280 / 1600 px:** diferencia máxima entre columnas de 33 px en el home (portada 0–33 px, "Lo más reciente" 12–21 px); destacado de secciones 0 px; edición impresa ≤ 80 px. En anchos intermedios (901–1100 px) la diferencia de "Lo más reciente" puede llegar a ~170 px, porque cada fila de notas mide unos 340 px.

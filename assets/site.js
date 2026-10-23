@@ -52,3 +52,16 @@ if(tt){const kids=[...tt.children];kids.slice(kids.length/2).forEach(a=>{a.setAt
   fixAll(document);
   new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==1)return;if(n.matches('a[href^="/"]'))fixA(n);fixAll(n)}))).observe(document.body,{childList:true,subtree:true});
 })();
+
+/* Columnas laterales altas (más que la pantalla): se fijan con un "top" negativo para que su parte baja también quede a la vista
+   al desplazarse, en lugar de dejar un hueco a su lado. */
+(function(){
+  const els=[...document.querySelectorAll('.sidebar .sticky,.arch-side')];
+  if(!els.length)return;
+  const ajusta=()=>els.forEach(el=>{
+    if(getComputedStyle(el).position!=='sticky')return;
+    el.style.top=Math.min(76,innerHeight-el.offsetHeight-16)+'px';
+  });
+  ajusta();addEventListener('resize',ajusta);addEventListener('load',ajusta);
+  if('ResizeObserver' in window){const ro=new ResizeObserver(ajusta);els.forEach(el=>ro.observe(el))}
+})();

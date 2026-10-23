@@ -52,6 +52,12 @@
     .cover-item b{display:block;font-family:Georgia,serif;font-size:1.02rem;line-height:1.2;color:var(--ink)}
     .cover-item span.d{font-size:.76rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent)}
 
+    .arch-side{display:grid;gap:24px;align-content:start;position:sticky;top:76px}
+    .extras h3{margin:0 0 14px}
+    .extras .mini{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .extras .mini a{display:grid;gap:8px;font-size:.82rem;font-weight:800;color:var(--navy)}
+    [data-theme="dark"] .extras .mini a{color:#fff}
+    .extras .mini img{width:100%;aspect-ratio:140/176;object-fit:cover;border-radius:4px;box-shadow:0 6px 16px rgba(24,79,118,.22);background:var(--soft)}
     .cal{padding:18px}
     .cal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
     .cal-head h3{margin:0;font-family:Georgia,serif;font-size:1.25rem;color:var(--navy);text-transform:capitalize}
@@ -79,7 +85,7 @@
 
     @media(max-width:1000px){.issue{grid-template-columns:300px minmax(0,1fr);padding:30px;gap:30px}}
     @media(max-width:900px){
-      .archive{grid-template-columns:minmax(0,1fr)}
+      .archive{grid-template-columns:minmax(0,1fr)}.arch-side{position:static}
       .covers{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
     @media(max-width:700px){
@@ -170,6 +176,7 @@
   <div class="archive">
     <div class="covers" id="recent"></div>
 
+    <div class="arch-side">
     <aside class="panel cal" id="calendario" aria-label="Calendario de ediciones">
       <div class="cal-head">
         <button type="button" id="calPrev" aria-label="Mes anterior">‹</button>
@@ -180,6 +187,13 @@
       <div class="cal-legend"><span><i></i>Con edición</span></div>
       <a class="btn ghost cal-today" href="https://online.fliphtml5.com/tfthn/Presente-20-10-2026/" target="_blank" rel="noopener">Ir a la de hoy</a>
     </aside>
+    <section class="panel extras" aria-label="Ventana Sur y suplementos"><h3>Ventana Sur y suplementos</h3>
+      <div class="mini">
+        <a href="#ventana"><img src="https://blob.diariopresente.mx/images/2026/10/17/ventanasur01-b07cb34b-focus-0-0-140-176.webp" alt="" loading="lazy" onerror="this.remove()"><span>Ventana Sur</span></a>
+        <a href="#suplementos"><img src="https://blob.diariopresente.mx/images/2026/01/06/crop-w1714-h2156-captura-de-maduropage-0001-ef857137-focus-0-0-140-176.webp" alt="" loading="lazy" onerror="this.remove()"><span>Suplementos</span></a>
+      </div>
+    </section>
+    </div>
   </div>
 
   <div class="adslot" data-kit="6" data-prop="1"></div>
