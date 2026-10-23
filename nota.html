@@ -37,6 +37,7 @@
     <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
   </div></div>
 
+  <div class="adbar"><div class="container"><div class="adslot" data-kit="5" data-prop="1"></div></div></div>
   <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
   <nav class="nav" aria-label="Secciones principales">
     <div class="container nav-row" id="navMenu">
@@ -64,12 +65,7 @@
 
 <main id="contenido"><div class="container">
 
-  <!-- ANUNCIO 1 · Leaderboard superior (slot GAM top_large_leaderboard, 728x90) -->
-  <aside class="ad-gob" aria-label="Publicidad 1" style="margin-bottom:0">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
-    <p>Slot GAM: <code>top_large_leaderboard</code></p>
-  </aside>
+  <div class="adslot" data-kit="6" data-prop="1"></div>
 
   <nav class="crumbs" id="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a></nav>
 
@@ -120,20 +116,10 @@
     </article>
 
     <aside class="sidebar" aria-label="Barra lateral"><div class="sticky">
-      <!-- ANUNCIO 4 · Medium rectangle 300x250 -->
-      <aside class="ad-gob rect" aria-label="Publicidad 4">
-        <span class="ad-label">Turismo Tabasco</span>
-        <strong>Medium Rectangle (300 × 250)</strong>
-        <p>Secretaría de Turismo · Ruta del Cacao</p>
-      </aside>
+      <div class="adslot" data-kit="7" data-prop="1"></div>
       <section class="panel"><h3>Más leído</h3><small class="demo-note">Ejemplo de diseño: faltan las lecturas reales.</small><ol class="ranking" id="ranking"></ol></section>
       <section class="panel social-panel"><h3>Síguenos</h3><p>Cobertura en tiempo real en la página de Grupo Presente Multimedios.</p><a class="btn" href="https://www.facebook.com/GrupoPresenteMultimedios">Ir a Facebook</a></section>
-      <!-- ANUNCIO 5 · Skyscraper 300x600 -->
-      <aside class="ad-gob vertical" aria-label="Publicidad 5">
-        <span class="ad-label">Campaña Oficial</span>
-        <strong>Banner Vertical (300 × 600)</strong>
-        <p>Informe de Resultados y Rendición de Cuentas 2026</p>
-      </aside>
+      <div class="adslot" data-kit="4" data-prop="1"></div>
     </div></aside>
   </div>
 
@@ -240,7 +226,7 @@ function pintar(n){
   }
   const total=nodos.filter(x=>x.nodeName==='P').length;
   const leerEl=(leer&&total>=5)?(()=>{const a=document.createElement('aside');a.className='read-also';a.setAttribute('aria-label','Lee también');a.innerHTML=`<div class="media ph"><img src="${leer.i}" alt="" loading="lazy" onerror="this.remove()"></div><div><small>Lee también</small><a href="${leer.h}">${esc(leer.t)}</a></div>`;return a})():null;
-  const adEl=total>=9?(()=>{const a=document.createElement('aside');a.className='ad-gob rect inline-ad';a.setAttribute('aria-label','Publicidad 6');a.innerHTML='<span class="ad-label">Turismo Tabasco</span><strong>In-article (300 × 250)</strong><p>Slot en el cuerpo de la nota, después del 6.º párrafo</p>';return a})():null;
+  const adEl=total>=9?(()=>{const a=document.createElement('div');a.className='adslot inline-ad';a.dataset.kit='7';a.dataset.prop='1';return a})():null;
   let parrafos=0;
   for(;i<nodos.length;i++){
     body.appendChild(nodos[i]);
@@ -260,5 +246,6 @@ window.NOTA_CB=pintar;
 const sc=document.createElement('script');sc.src=`data/notas/${ID}.js`;sc.onerror=noEncontrada;document.head.appendChild(sc);
 </script>
 <script src="assets/site.js"></script>
+<script src="assets/ads.js"></script>
 </body>
 </html>

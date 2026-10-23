@@ -34,6 +34,7 @@
     <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
   </div></div>
 
+  <div class="adbar"><div class="container"><div class="adslot" data-kit="1"></div></div></div>
   <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
   <nav class="nav" aria-label="Secciones principales">
     <div class="container nav-row" id="navMenu">
@@ -61,12 +62,7 @@
 
 <main id="contenido"><div class="container">
 
-  <!-- ANUNCIO 1 · Leaderboard superior (hoy: top_large_leaderboard 728x90 en GAM) -->
-  <aside class="ad-gob" aria-label="Publicidad 1">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
-    <p>Slot GAM: <code>top_large_leaderboard</code></p>
-  </aside>
+  <div class="adslot" data-kit="2"></div>
 
   <!-- PORTADA -->
   <section class="lead-grid" aria-labelledby="principal">
@@ -85,37 +81,22 @@
     </div>
   </section>
 
-  <!-- ANUNCIO 2 · In-feed superior -->
-  <aside class="ad-gob" aria-label="Publicidad 2">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Programas de Bienestar y Desarrollo Social 2026</strong>
-    <p>Slot GAM: <code>top_leaderboard</code> (728 × 90)</p>
-  </aside>
+  <div class="adslot" data-kit="2"></div>
 
   <!-- LO MÁS RECIENTE + SIDEBAR -->
   <div class="section-head"><h2>Lo más reciente</h2><a href="seccion.html">Ver todas →</a></div>
   <div class="content-grid">
     <section class="cards" aria-label="Noticias recientes" id="recent">
-      <!-- ANUNCIO 3 · In-feed secundario -->
-      <aside class="ad-gob" aria-label="Publicidad 3" style="grid-column:1/-1;margin:6px 0 0">
-        <span class="ad-label">Secretaría de Salud</span>
-        <strong>Campaña de Prevención y Salud Comunitaria</strong>
-        <p>Slot GAM: <code>bottom_leaderboard</code> (728 × 90)</p>
-      </aside>
     </section>
 
     <aside class="sidebar"><div class="sticky">
-      <!-- ANUNCIO 4 · Medium rectangle 300x250 (hoy: AdSense / Smart AdServer) -->
-      <aside class="ad-gob rect" aria-label="Publicidad 4">
-        <span class="ad-label">Turismo Tabasco</span>
-        <strong>Medium Rectangle (300 × 250)</strong>
-        <p>Secretaría de Turismo · Ruta del Cacao</p>
-      </aside>
 
       <section class="panel"><h3>Más leído</h3><small class="demo-note">Ejemplo de diseño: faltan las lecturas reales.</small>
         <ol class="ranking" id="ranking"></ol>
         <!-- DATO PENDIENTE: hoy el sitio no publica ranking; requiere fuente (GA4 / CMS) -->
       </section>
+
+      <div class="adslot" data-kit="4"></div>
 
       <section class="panel newsletter"><h3>Noticias en tu correo</h3><p>Recibe el resumen diario con las historias más importantes de Tabasco.</p>
         <form><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="nombre@correo.com" required><button class="btn" type="submit">Suscribirme</button></form>
@@ -124,12 +105,6 @@
 
       <section class="panel social-panel"><h3>Síguenos</h3><p>Cobertura en tiempo real en la página de Grupo Presente Multimedios.</p><a class="btn" href="https://www.facebook.com/GrupoPresenteMultimedios">Ir a Facebook</a></section>
 
-      <!-- ANUNCIO 5 · Skyscraper 300x600 -->
-      <aside class="ad-gob vertical" aria-label="Publicidad 5">
-        <span class="ad-label">Campaña Oficial</span>
-        <strong>Banner Vertical (300 × 600)</strong>
-        <p>Informe de Resultados y Rendición de Cuentas 2026</p>
-      </aside>
     </div></aside>
   </div>
 
@@ -146,6 +121,8 @@
     <a class="col-card" href="/opinion/como-la-ven/470257"><span class="avatar">CL</span><h3>¿Cómo la ven?</h3><span class="author">Cecilia Lavalle Torres</span></a>
     <a class="col-card" href="columna.html"><span class="avatar">VS</span><h3>Escala Crítica</h3><span class="author">Víctor M. Sámano Labastida</span></a>
   </section>
+
+  <div class="adslot" data-kit="2"></div>
 
   <!-- MULTIMEDIA -->
   <div class="section-head" id="multimedia"><h2>Multimedia</h2><a href="#">Explorar →</a></div>
@@ -240,11 +217,13 @@ document.getElementById('recent').insertAdjacentHTML('afterbegin',D.recent.map(a
   <article class="card story"><a href="${a.h}" tabindex="-1" aria-hidden="true"><div class="media ph">${imgTag(a.i)}</div></a>
   <span class="topic">${a.s}</span><h3><a href="${a.h}">${esc(a.t)}</a></h3><div class="meta"><span>Hoy</span></div></article>`).join(''));
 
-document.getElementById('cats').innerHTML=D.cats.map(c=>{
+const catBlocks=D.cats.map(c=>{
   const [lead,...rest]=c.a;
   return `<section class="cat-block"><div class="cat-head"><h2>${c.n}</h2><a href="${c.u}">Ver más →</a></div>
   <div class="cat-lead story"><a href="${lead[1]}" tabindex="-1" aria-hidden="true"><div class="media ph">${imgTag(lead[2])}</div></a><h3><a href="${lead[1]}">${esc(lead[0])}</a></h3></div>
-  <ul class="cat-list">${rest.map(r=>`<li class="story"><a href="${r[1]}" tabindex="-1" aria-hidden="true"><div class="media ph">${imgTag(r[2])}</div></a><a href="${r[1]}">${esc(r[0])}</a></li>`).join('')}</ul></section>`}).join('');
+  <ul class="cat-list">${rest.map(r=>`<li class="story"><a href="${r[1]}" tabindex="-1" aria-hidden="true"><div class="media ph">${imgTag(r[2])}</div></a><a href="${r[1]}">${esc(r[0])}</a></li>`).join('')}</ul></section>`});
+catBlocks.splice(2,0,'<div class="ad-pair"><div class="adslot" data-kit="3"></div><div class="adslot" data-kit="3"></div></div>');
+document.getElementById('cats').innerHTML=catBlocks.join('');
 
 document.getElementById('mm').innerHTML=D.multimedia.map(m=>`
   <article class="story"><a href="${m[1]}"><div class="media ph">${imgTag(m[2])}<span class="gal" aria-label="Galería">▣ Galería</span></div><h3>${esc(m[0])}</h3></a></article>`).join('');
@@ -257,5 +236,6 @@ document.getElementById('tickerTrack').innerHTML=tk+tk;
 
 </script>
 <script src="assets/site.js"></script>
+<script src="assets/ads.js"></script>
 </body>
 </html>

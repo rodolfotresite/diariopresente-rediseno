@@ -307,3 +307,46 @@ Se auditaron las 6 páginas (home, nota, sección, opinión, columna, edición i
 - Los autores de columnas distintos a los seis principales usan iniciales como avatar; el sitio no tiene fotos.
 - Las notas tienen la foto principal con el recorte que entrega el sitio (760 × 475); sin pie ni crédito de foto.
 - El texto de los 416 artículos y las 96 columnas, con sus fotos, está ahora en un **repositorio público**. Conviene valorar pasarlo a privado o dejar solo muestras antes de compartir el enlace más allá del cliente.
+
+## 14. Espacios publicitarios del Media Kit 2026 (Grupo SIT)
+
+Fuente: página **"Espacios web"** del *Media Kit 2026* del Grupo SIT (PDF de una página). Sustituye el mapa de publicidad de la sección 5 y los nombres de anunciantes de ejemplo que se habían puesto en las maquetas ("Gobierno de Tabasco", "Secretaría de Salud", etc.), que eran inventados.
+
+### Catálogo (tal como aparece en el documento)
+
+| # | Espacio | Medidas | Dónde |
+|---|---|---|---|
+| 1 | Top Large Leaderboard (**Nuevo**) | 970 × 90 px | Home, en la cabecera, entre el logo y el menú |
+| 2 | Leaderboard | 728 × 90 px | Home: bajo el menú, tras las destacadas y antes de Multimedia |
+| 3 | Medium Rectangle | 300 × 250 px | Home: dos juntos, entre los bloques de notas |
+| 4 | Half Page | 300 × 600 px | Home: columna lateral |
+| 5 | Top Large Leaderboard | 970 × 90 px | Secciones, en la cabecera |
+| 6 | Leaderboard | 728 × 90 px | Secciones: bajo el menú y dentro del listado |
+| 7 | Medium Rectangle | 300 × 250 px | Secciones: cuatro apilados en la columna lateral |
+| 8 | Billboard | 970 × 200 px | Secciones: entre el destacado y el listado |
+| 9 | Floor Ad | 970 × 250 px | Secciones: tras el listado, antes del pie |
+| 10 | Layer | no especificadas | Home y secciones |
+| 11 | Intersticial móvil | no especificadas | Home, móvil |
+
+*Espacios sujetos a disponibilidad.*
+
+### Cómo quedó en el rediseño
+
+- **Un solo componente.** Cada espacio se declara con `<div class="adslot" data-kit="N"></div>` y `assets/ads.js` lo dibuja con su nombre y sus medidas reales (tamaño proporcional, número en círculo como en el documento y etiqueta "Publicidad"). Para cambiar el catálogo basta editar `KIT` en ese archivo.
+- **Home:** 1 en la cabecera, 2 bajo el menú, tras las destacadas y antes de Multimedia (tres ubicaciones), 3 en pareja entre los bloques de categorías, y 4 en la columna lateral tras "Más leído". Se quitaron los espacios que el media kit no define (300 × 250 suelto y banner vertical 300 × 600).
+- **Secciones (13, con la misma plantilla):** 5, 6 bajo el menú, 8 tras el destacado, 6 dentro del listado (tras la 4.ª nota), 7 cuatro veces en la columna lateral intercaladas con "Más leído", la Portada del día y el boletín, y 9 antes del pie. Opinión usa los mismos formatos porque es una sección del menú.
+- **Páginas que el media kit no cubre** (nota, columna, edición impresa): llevan formatos del mismo catálogo, marcados como **propuesta** (etiqueta "Publicidad · propuesta" y descripción para lectores de pantalla): 5 y 6 arriba, 7 y 4 en el lateral, y 7 dentro del texto en la nota.
+- **Guía de espacios.** El botón "Espacios publicitarios" de la barra de borrador (abajo a la izquierda) abre una tabla con los 11 espacios, sus medidas y dónde van. En cada página permite **mostrar** (desplazarse y resaltar) los espacios presentes, y ofrece una **demostración** del **Layer** (capa sobre el contenido) y del **Intersticial móvil** (pantalla completa), que no tienen ubicación fija.
+
+### Verificación
+
+Medidas exactas a 1280 px (970 × 90, 728 × 90, 970 × 200, 970 × 250, 300 × 250 y 300 × 600); sin desbordes a 375, 414, 768 y 1280 px; guía, "mostrar" y las dos demostraciones probadas; contraste, encabezados y nombres accesibles revisados en claro y oscuro. De paso se corrigió la columna lateral en tablet (los paneles ocupaban la mitad del ancho).
+
+### Dudas para el área comercial
+
+- **Billboard 970 × 200 px** frente a **Floor Ad 970 × 250 px**: el estándar de la industria para el Billboard es 970 × 250. Se respetó el documento; conviene confirmar si 200 es correcto.
+- **Layer e Intersticial móvil:** el documento no da medidas. Las demostraciones usan 640 px de ancho y 360 × 640 px como referencia; hay que confirmarlas.
+- **Tercer Leaderboard del home:** en la imagen del documento hay una franja azul sin texto antes de Multimedia. Se interpretó como un Leaderboard 728 × 90.
+- **Móvil:** el documento no define formatos móviles, salvo el Intersticial. Hoy los espacios se escalan al ancho de la pantalla; las medidas móviles (320 × 50, 300 × 250…) habría que definirlas.
+- **Notas, columnas y edición impresa:** ¿se ofrecen espacios ahí? Si sí, falta definir cuáles.
+- **Top Large Leaderboard dentro del encabezado:** se colocó sobre el menú como en el documento; el menú queda fijo al desplazarse y el espacio se va con la cabecera.

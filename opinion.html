@@ -57,15 +57,14 @@
     .row .kicker{font-size:.72rem;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
     .row h3{font-family:Georgia,serif;font-size:1.28rem;line-height:1.18;margin:4px 0 6px}
     .row .by{font-size:.84rem;color:var(--muted)}.row .by b{color:var(--ink)}
-    .list .ad-gob{margin:22px 0}
     .more{display:grid;justify-items:center;gap:10px;margin:30px 0 6px}
     .more .btn{min-width:240px;padding:14px 22px}.more small{color:var(--muted);font-size:.82rem}.more.done .btn{display:none}
     .disclaimer{margin-top:30px;padding:16px 18px;border-radius:12px;background:var(--soft);color:var(--muted);font-size:.82rem;line-height:1.5}
 
     @media(max-width:1000px){.today{grid-template-columns:repeat(2,minmax(0,1fr))}.col-feature.big{grid-column:span 2;grid-row:auto}.authors{grid-template-columns:repeat(2,minmax(0,1fr))}}
-    @media(max-width:900px){.sec-layout{grid-template-columns:1fr}}
+    @media(max-width:900px){.sec-layout{grid-template-columns:minmax(0,1fr)}}
     @media(max-width:620px){
-      .today,.authors{grid-template-columns:1fr}.col-feature.big{grid-column:auto;padding:24px}
+      .today,.authors{grid-template-columns:minmax(0,1fr)}.col-feature.big{grid-column:auto;padding:24px}
       .row{grid-template-columns:40px 1fr;gap:12px}.row .avatar{width:40px;height:40px;font-size:.85rem}
       .row h3{font-size:1.1rem}
     }
@@ -92,6 +91,7 @@
     <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
   </div></div>
 
+  <div class="adbar"><div class="container"><div class="adslot" data-kit="5"></div></div></div>
   <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
   <nav class="nav" aria-label="Secciones principales">
     <div class="container nav-row" id="navMenu">
@@ -119,12 +119,7 @@
 
 <main id="contenido"><div class="container">
 
-  <!-- ANUNCIO 1 · Leaderboard superior (slot GAM top_large_leaderboard) -->
-  <aside class="ad-gob" aria-label="Publicidad 1" style="margin-bottom:0">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
-    <p>Slot GAM: <code>top_large_leaderboard</code></p>
-  </aside>
+  <div class="adslot" data-kit="6"></div>
 
   <nav class="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Opinión</span></nav>
 
@@ -148,23 +143,14 @@
     </div>
 
     <aside class="sidebar" aria-label="Barra lateral"><div class="sticky">
-      <!-- ANUNCIO 4 · Medium rectangle 300x250 -->
-      <aside class="ad-gob rect" aria-label="Publicidad 4">
-        <span class="ad-label">Turismo Tabasco</span>
-        <strong>Medium Rectangle (300 × 250)</strong>
-        <p>Secretaría de Turismo · Ruta del Cacao</p>
-      </aside>
+      <div class="adslot" data-kit="7"></div>
       <section class="panel newsletter"><h3>Opinión en tu correo</h3><p>Recibe las columnas del día cada mañana.</p>
         <form><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="nombre@correo.com" required><button class="btn" type="submit">Suscribirme</button></form>
       </section>
-      <!-- ANUNCIO 5 · Skyscraper 300x600 -->
-      <aside class="ad-gob vertical" aria-label="Publicidad 5">
-        <span class="ad-label">Campaña Oficial</span>
-        <strong>Banner Vertical (300 × 600)</strong>
-        <p>Informe de Resultados y Rendición de Cuentas 2026</p>
-      </aside>
+      <div class="adslot" data-kit="7"></div>
     </div></aside>
   </div>
+  <div class="adslot" data-kit="9"></div>
 </div></main>
 
 <footer><div class="container">
@@ -231,7 +217,7 @@ document.getElementById('authors').innerHTML=TODAY.map(c=>`
 /* Más columnas: 8 por vez, separadores por día, un anuncio in-feed */
 const STEP=8;let shown=0,lastDay='';
 const list=document.getElementById('list'),more=document.getElementById('more'),info=document.getElementById('moreInfo');
-const AD2=`<aside class="ad-gob" aria-label="Publicidad 2"><span class="ad-label">Gobierno de Tabasco</span><strong>Programas de Bienestar y Desarrollo Social 2026</strong><p>Slot GAM: <code>top_leaderboard</code> (728 × 90)</p></aside>`;
+const AD2='<div class="adslot" data-kit="6"></div>';
 function render(){
   let html='';
   MORE.slice(shown,shown+STEP).forEach((c,k)=>{
@@ -258,5 +244,6 @@ const tk=TICK.map(a=>`<a href="${a[1]}">${esc(a[0])}</a>`).join('');
 document.getElementById('tickerTrack').innerHTML=tk+tk;
 </script>
 <script src="assets/site.js"></script>
+<script src="assets/ads.js"></script>
 </body>
 </html>

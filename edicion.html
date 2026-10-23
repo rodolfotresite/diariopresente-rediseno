@@ -76,11 +76,10 @@
     .shelf .cover-item .paper{aspect-ratio:140/176}
     .shelf-note{margin:-6px 0 18px;color:var(--muted);font-size:.9rem}
 
-    .ad-gob{margin:36px 0}
 
     @media(max-width:1000px){.issue{grid-template-columns:300px minmax(0,1fr);padding:30px;gap:30px}}
     @media(max-width:900px){
-      .archive{grid-template-columns:1fr}
+      .archive{grid-template-columns:minmax(0,1fr)}
       .covers{grid-template-columns:repeat(3,minmax(0,1fr))}
     }
     @media(max-width:700px){
@@ -112,6 +111,7 @@
     <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
   </div></div>
 
+  <div class="adbar"><div class="container"><div class="adslot" data-kit="5" data-prop="1"></div></div></div>
   <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
   <nav class="nav" aria-label="Secciones principales">
     <div class="container nav-row" id="navMenu">
@@ -139,12 +139,7 @@
 
 <main id="contenido"><div class="container">
 
-  <!-- ANUNCIO 1 · Leaderboard superior (slot GAM top_large_leaderboard) -->
-  <aside class="ad-gob" aria-label="Publicidad 1" style="margin-bottom:0">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
-    <p>Slot GAM: <code>top_large_leaderboard</code></p>
-  </aside>
+  <div class="adslot" data-kit="6" data-prop="1"></div>
 
   <nav class="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Edición impresa</span></nav>
 
@@ -187,12 +182,7 @@
     </aside>
   </div>
 
-  <!-- ANUNCIO 2 · In-feed -->
-  <aside class="ad-gob" aria-label="Publicidad 2">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Programas de Bienestar y Desarrollo Social 2026</strong>
-    <p>Slot GAM: <code>top_leaderboard</code> (728 × 90)</p>
-  </aside>
+  <div class="adslot" data-kit="6" data-prop="1"></div>
 
   <!-- VENTANA SUR -->
   <div class="section-head"><h2>Ventana Sur</h2><a href="#">Ver todas →</a></div>
@@ -291,5 +281,6 @@ const tk=TICK.map(a=>`<a href="${a[1]}">${esc(a[0])}</a>`).join('');
 document.getElementById('tickerTrack').innerHTML=tk+tk;
 </script>
 <script src="assets/site.js"></script>
+<script src="assets/ads.js"></script>
 </body>
 </html>

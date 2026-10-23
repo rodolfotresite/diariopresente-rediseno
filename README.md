@@ -28,12 +28,17 @@ y abre <http://localhost:8000/index.html>. Las páginas de sección cargan datos
 | `edicion.html` | Edición impresa: portada del día, calendario y suplementos |
 | `404.html` | Página de error de GitHub Pages |
 
+### Espacios publicitarios
+
+Los 11 espacios del *Media Kit 2026* del Grupo SIT (página "Espacios web") están en `assets/ads.js`; cada página los declara con `<div class="adslot" data-kit="N"></div>`. El botón "Espacios publicitarios" (abajo a la izquierda) abre la guía, resalta cada espacio en la página y muestra el Layer y el Intersticial móvil. Detalle y dudas para el área comercial: `analisis-sitio-actual.md`, sección 14.
+
 ## Estructura
 
 ```
 assets/
   site.css       Estilos comunes (paleta, encabezado, pie, anuncios, distintivo de borrador)
   site.js        Tema claro/oscuro, tamaño de texto, buscador, menú, ticker y la vista previa
+  ads.js         Catálogo de espacios publicitarios del media kit, guía y demostraciones
   article.css    Estilos de lectura (nota y columna)
   article.js     Compartir, tiempo de lectura, progreso, comentarios
   logo-diariopresente-blanco.svg   Logo oficial (el HTML lo incrusta como SVG)

@@ -54,7 +54,7 @@
     .today-row h3{font-family:Georgia,serif;font-size:1.12rem;line-height:1.2;margin:0}
     .today-row small{color:var(--muted)}
     @media(max-width:900px){.today-row{grid-template-columns:1fr 1fr}}
-    @media(max-width:620px){.today-row{grid-template-columns:1fr}}
+    @media(max-width:620px){.today-row{grid-template-columns:minmax(0,1fr)}}
   </style>
 </head>
 <body>
@@ -79,6 +79,7 @@
     <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
   </div></div>
 
+  <div class="adbar"><div class="container"><div class="adslot" data-kit="5" data-prop="1"></div></div></div>
   <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
   <nav class="nav" aria-label="Secciones principales">
     <div class="container nav-row" id="navMenu">
@@ -106,12 +107,7 @@
 
 <main id="contenido"><div class="container">
 
-  <!-- ANUNCIO 1 · Leaderboard superior (slot GAM top_large_leaderboard) -->
-  <aside class="ad-gob" aria-label="Publicidad 1" style="margin-bottom:0">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
-    <p>Slot GAM: <code>top_large_leaderboard</code></p>
-  </aside>
+  <div class="adslot" data-kit="6" data-prop="1"></div>
 
   <nav class="crumbs" id="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><a href="opinion.html">Opinión</a></nav>
 
@@ -163,18 +159,8 @@
       <section class="panel" id="masPanel" hidden><h3>Más contenido del autor</h3>
         <ul class="more-author" id="moreAuthor"></ul>
       </section>
-      <!-- ANUNCIO 4 · Medium rectangle 300x250 -->
-      <aside class="ad-gob rect" aria-label="Publicidad 4">
-        <span class="ad-label">Turismo Tabasco</span>
-        <strong>Medium Rectangle (300 × 250)</strong>
-        <p>Secretaría de Turismo · Ruta del Cacao</p>
-      </aside>
-      <!-- ANUNCIO 5 · Skyscraper 300x600 -->
-      <aside class="ad-gob vertical" aria-label="Publicidad 5">
-        <span class="ad-label">Campaña Oficial</span>
-        <strong>Banner Vertical (300 × 600)</strong>
-        <p>Informe de Resultados y Rendición de Cuentas 2026</p>
-      </aside>
+      <div class="adslot" data-kit="7" data-prop="1"></div>
+      <div class="adslot" data-kit="4" data-prop="1"></div>
     </div></aside>
   </div>
 
@@ -269,5 +255,6 @@ window.COLUMNA_CB=pintar;
 const sc=document.createElement('script');sc.src=`data/columnas/${ID}.js`;sc.onerror=noEncontrada;document.head.appendChild(sc);
 </script>
 <script src="assets/site.js"></script>
+<script src="assets/ads.js"></script>
 </body>
 </html>

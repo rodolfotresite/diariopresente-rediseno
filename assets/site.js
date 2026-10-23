@@ -51,5 +51,4 @@ if(tt){const kids=[...tt.children];kids.slice(kids.length/2).forEach(a=>{a.setAt
   const fixAll=root=>root.querySelectorAll('a[href^="/"]').forEach(fixA);
   fixAll(document);
   new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>{if(n.nodeType!==1)return;if(n.matches('a[href^="/"]'))fixA(n);fixAll(n)}))).observe(document.body,{childList:true,subtree:true});
-  const b=document.createElement('div');b.className='draft-badge';b.textContent='Borrador de rediseño · contenido de ejemplo';document.body.appendChild(b);
 })();

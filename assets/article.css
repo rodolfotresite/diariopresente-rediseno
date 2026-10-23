@@ -68,9 +68,9 @@
       .related .cards{grid-template-columns:1fr 1fr}
     }
     @media(max-width:620px){
-      .related .cards{grid-template-columns:1fr}
+      .related .cards{grid-template-columns:minmax(0,1fr)}
       .read-also{grid-template-columns:76px 1fr}
-      .end-cta{grid-template-columns:1fr}
+      .end-cta{grid-template-columns:minmax(0,1fr)}
       .article-body{font-size:1.1em}
     }
   

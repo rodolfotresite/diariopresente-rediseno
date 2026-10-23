@@ -41,7 +41,7 @@
     .item .media{aspect-ratio:3/2;border-radius:12px}
     .item h3{font-family:Georgia,serif;font-size:1.38rem;line-height:1.16;margin:0 0 8px}
     .item p{margin:0 0 10px;color:var(--muted);font-size:.95rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-    .list .ad-gob{margin:22px 0}
+    .sec-layout .sticky{position:static}
 
     .empty{padding:28px;border:1px dashed var(--line);border-radius:var(--radius);color:var(--muted);text-align:center}
     .more{display:grid;justify-items:center;gap:10px;margin:30px 0 6px}
@@ -51,12 +51,12 @@
 
     @media(max-width:1000px){.item{grid-template-columns:190px 1fr}}
     @media(max-width:900px){
-      .featured,.sec-layout{grid-template-columns:1fr}
+      .featured,.sec-layout{grid-template-columns:minmax(0,1fr)}
       .feat-side{grid-template-columns:repeat(3,1fr);gap:16px}
       .feat-side .story{display:block;padding:0;border:0}.feat-side .media{margin-bottom:10px}
     }
     @media(max-width:620px){
-      .feat-side{grid-template-columns:1fr}.feat-side .story{display:grid;padding-bottom:16px;border-bottom:1px solid var(--line)}
+      .feat-side{grid-template-columns:minmax(0,1fr)}.feat-side .story{display:grid;padding-bottom:16px;border-bottom:1px solid var(--line)}
       .item{grid-template-columns:104px 1fr;gap:14px;padding:16px 0}
       .item .media{aspect-ratio:1/1;border-radius:10px}
       .item h3{font-size:1.04rem}.item p{-webkit-line-clamp:2;font-size:.88rem}
@@ -85,6 +85,7 @@
     <div class="actions"><button class="icon-btn text-size" id="fontBtn" aria-label="Cambiar tamaño de texto">Aa</button><button class="icon-btn" id="themeBtn" aria-label="Cambiar tema">◐</button><button class="icon-btn" id="searchBtn" aria-label="Buscar">⌕</button></div>
   </div></div>
 
+  <div class="adbar"><div class="container"><div class="adslot" data-kit="5"></div></div></div>
   <!-- Navegación: mismas 14 entradas del sitio actual, reagrupadas en 7 principales + "Más" -->
   <nav class="nav" aria-label="Secciones principales">
     <div class="container nav-row" id="navMenu">
@@ -112,12 +113,7 @@
 
 <main id="contenido"><div class="container">
 
-  <!-- ANUNCIO 1 · Leaderboard superior (slot GAM top_large_leaderboard) -->
-  <aside class="ad-gob" aria-label="Publicidad 1" style="margin-bottom:0">
-    <span class="ad-label">Gobierno de Tabasco</span>
-    <strong>Campaña de Obras y Transparencia Estatal (970 × 90)</strong>
-    <p>Slot GAM: <code>top_large_leaderboard</code></p>
-  </aside>
+  <div class="adslot" data-kit="6"></div>
 
   <nav class="crumbs" id="crumbs" aria-label="Ruta de navegación"><a href="index.html">Inicio</a><span aria-hidden="true">›</span><span aria-current="page">Tabasco</span></nav>
 
@@ -131,27 +127,22 @@
 
   <section class="featured" aria-label="Destacadas de Tabasco" id="featured"></section>
 
+  <div class="adslot" data-kit="8"></div>
+
   <div class="section-head"><h2 id="secMore">Más noticias de Tabasco</h2><a href="#" id="countTop"></a></div>
   <div class="sec-layout">
     <div class="list" id="list" aria-live="polite"></div>
 
     <aside class="sidebar" aria-label="Barra lateral"><div class="sticky">
-      <!-- ANUNCIO 4 · Medium rectangle 300x250 -->
-      <aside class="ad-gob rect" aria-label="Publicidad 4">
-        <span class="ad-label">Turismo Tabasco</span>
-        <strong>Medium Rectangle (300 × 250)</strong>
-        <p>Secretaría de Turismo · Ruta del Cacao</p>
-      </aside>
+      <div class="adslot" data-kit="7"></div>
       <section class="panel"><h3>Más leído</h3><small class="demo-note">Ejemplo de diseño: faltan las lecturas reales.</small><ol class="ranking" id="ranking"></ol></section>
+      <div class="adslot" data-kit="7"></div>
+      <section class="panel portada-panel"><h3>Portada del día</h3><a href="edicion.html" aria-label="Ver la edición impresa de hoy"><img src="https://diariopresenterm.blob.core.windows.net/images/2026/10/20/presente01-79539df6-focus-0-0-350-441.webp" alt="Portada de Diario Presente de hoy" loading="lazy" onerror="this.remove()"></a></section>
+      <div class="adslot" data-kit="7"></div>
       <section class="panel newsletter"><h3>Noticias en tu correo</h3><p>Recibe el resumen diario con las historias más importantes de Tabasco.</p>
         <form><label for="email">Correo electrónico</label><input id="email" type="email" placeholder="nombre@correo.com" required><button class="btn" type="submit">Suscribirme</button></form>
       </section>
-      <!-- ANUNCIO 5 · Skyscraper 300x600 -->
-      <aside class="ad-gob vertical" aria-label="Publicidad 5">
-        <span class="ad-label">Campaña Oficial</span>
-        <strong>Banner Vertical (300 × 600)</strong>
-        <p>Informe de Resultados y Rendición de Cuentas 2026</p>
-      </aside>
+      <div class="adslot" data-kit="7"></div>
     </div></aside>
   </div>
 
@@ -159,6 +150,7 @@
     <button class="btn" type="button" id="moreBtn">Más noticias</button>
     <small id="moreInfo" role="status"></small>
   </div>
+  <div class="adslot" data-kit="9"></div>
 </div></main>
 
 <footer><div class="container">
@@ -237,8 +229,7 @@ if(!side.length)$('featured').style.gridTemplateColumns='1fr';
 /* Listado con "Más noticias" (12 por vez); separadores por día; dos anuncios in-feed */
 const STEP=12;let shown=0,lastDay='';
 const list=$('list'),more=$('more'),info=$('moreInfo'),btn=$('moreBtn');
-const AD2=`<aside class="ad-gob" aria-label="Publicidad 2"><span class="ad-label">Gobierno de Tabasco</span><strong>Programas de Bienestar y Desarrollo Social 2026</strong><p>Slot GAM: <code>top_leaderboard</code> (728 × 90)</p></aside>`;
-const AD3=`<aside class="ad-gob" aria-label="Publicidad 3"><span class="ad-label">Secretaría de Salud</span><strong>Campaña de Prevención y Salud Comunitaria</strong><p>Slot GAM: <code>bottom_leaderboard</code> (728 × 90)</p></aside>`;
+const AD2='<div class="adslot" data-kit="6"></div>';
 function render(){
   let html='';
   rest.slice(shown,shown+STEP).forEach((n,k)=>{
@@ -247,7 +238,6 @@ function render(){
     html+=`<article class="item story"><a href="${href(n.h)}" tabindex="-1" aria-hidden="true"><div class="media ph">${img(n.i)}</div></a>
       <div><h3><a href="${href(n.h)}">${esc(n.t)}</a></h3>${n.s?`<p>${esc(n.s)}</p>`:''}<div class="meta">${when(n)}</div></div></article>`;
     if(idx===3)html+=AD2;
-    if(idx===9)html+=AD3;
   });
   list.insertAdjacentHTML('beforeend',html);
   shown=Math.min(rest.length,shown+STEP);
@@ -265,5 +255,6 @@ const tk=TICK.map(a=>`<a href="${a[1]}">${esc(a[0])}</a>`).join('');
 $('tickerTrack').innerHTML=tk+tk;
 </script>
 <script src="assets/site.js"></script>
+<script src="assets/ads.js"></script>
 </body>
 </html>
